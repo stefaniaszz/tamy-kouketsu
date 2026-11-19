@@ -162,3 +162,6 @@
 .btn { max-width: 100%; text-align: center; }
 @media (max-width: 380px) { .btn { padding: .9rem 1.1rem; letter-spacing: .12em; } }
 @media (max-width: 600px) { .abas--claras .abas__botao { padding: .6rem .55rem; letter-spacing: .08em; font-size: .68rem; } }
+
+/* Carrossel: o deslize lateral nas fotos nao arrasta a pagina junto */
+.carrossel__pista { overscroll-behavior-x: contain; }

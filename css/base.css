@@ -39,3 +39,14 @@ h1, h2, h3 {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- Ajustes para celular: texto e rolagem ---------- */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+/* Trava rolagem lateral (a pagina nunca "balanca" para os lados) */
+html, body { overflow-x: clip; overscroll-behavior-x: none; }
+@supports not (overflow: clip) { html, body { overflow-x: hidden; } }
+/* Numeros alinhados (sem o estilo antigo da Cormorant, que parece "falhado") */
+body { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+/* Quebra de linha mais bonita e sem palavras estourando */
+h1, h2, h3, .titulo-secao__titulo { text-wrap: balance; }
+p, li { overflow-wrap: break-word; text-wrap: pretty; }

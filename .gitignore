@@ -1,6 +1,27 @@
+
+# Sistema operacional
 .DS_Store
 Thumbs.db
+
+# Dependências
 node_modules/
 
-# fotos e videos originais (pesados, o site usa as versoes em assets/)
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
+
+# Credenciais e chaves privadas
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+
+# Arquivos locais e temporários
+*.log
+*.tmp
+
+# Fotos e vídeos originais
 originais/
