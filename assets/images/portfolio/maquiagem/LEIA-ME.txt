@@ -1,0 +1,3 @@
+Pasta reservada: assets/images/portfolio/maquiagem
+Conteudo ainda pendente. Coloque aqui os arquivos reais quando forem enviados.
+(Este arquivo existe so para a pasta ser criada; pode ser apagado depois.)

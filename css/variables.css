@@ -1,0 +1,37 @@
+/* ==========================================================
+   VARIAVEIS GLOBAIS — altere cores, fontes e medidas aqui.
+   ========================================================== */
+:root {
+  /* Paleta oficial da marca */
+  --cor-cafe: #493329;
+  --cor-marrom: #80634D;
+  --cor-dourado: #C5A46D;
+  --cor-offwhite: #F5F0E9;
+
+  /* Variacoes derivadas (transparencias e sobreposicoes) */
+  --cor-cafe-90: rgba(73, 51, 41, 0.92);
+  --cor-dourado-30: rgba(197, 164, 109, 0.3);
+  /* Dourado escurecido, so para TEXTO em fundo claro (contraste 5,2:1; o dourado puro tem 2,1:1) */
+  --cor-dourado-texto: #7D5F2E;
+  --cor-texto: var(--cor-cafe);
+  --cor-texto-suave: var(--cor-marrom);
+
+  /* Tipografia (carregada via Google Fonts no index.html) */
+  --fonte-titulo: 'Cormorant Garamond', Georgia, serif;
+  --fonte-texto: 'Jost', system-ui, sans-serif;
+
+  /* Espacamentos */
+  --espaco-xs: 0.5rem;
+  --espaco-sm: 1rem;
+  --espaco-md: 2rem;
+  --espaco-lg: 4rem;
+  --espaco-secao: clamp(4.5rem, 10vw, 8rem);
+
+  /* Layout */
+  --largura-max: 1200px;
+  --altura-header: 84px;
+  --raio: 4px;
+
+  /* Transicoes */
+  --transicao: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}

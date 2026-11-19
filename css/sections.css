@@ -1,0 +1,184 @@
+/* Padroes e estilos por secao */
+
+/* ---------- Padrao de secao ---------- */
+.secao { padding-block: var(--espaco-secao); }
+.secao--clara { background: var(--cor-offwhite); color: var(--cor-cafe); }
+.secao--escura { background: var(--cor-cafe); color: var(--cor-offwhite); }
+.secao--escura .titulo-secao h2 { color: var(--cor-offwhite); }
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100svh; display: flex; align-items: center;
+  padding-block: calc(var(--altura-header) + 2rem) var(--espaco-lg);
+  background: var(--cor-cafe); color: var(--cor-offwhite);
+  position: relative; overflow: hidden;
+}
+.hero::before {                  /* brilho dourado discreto ao fundo */
+  content: ''; position: absolute; right: -10%; top: -20%; width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(197,164,109,0.16), transparent 65%);
+  pointer-events: none;
+}
+.hero__grid {
+  position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr;
+  align-items: center; gap: clamp(2rem, 6vw, 5rem);
+}
+.hero__rotulo {
+  display: block; font-size: 0.78rem; letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--cor-dourado); margin-bottom: 1.5rem;
+}
+.hero__titulo { font-size: clamp(2.8rem, 6.5vw, 5.2rem); font-weight: 400; }
+.hero__titulo em { font-style: italic; color: var(--cor-dourado); }
+.hero__texto { margin-top: 1.75rem; max-width: 30rem; opacity: 0.85; }
+.hero__acoes { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* Foto de destaque: moldura em arco com borda dourada */
+.hero__foto { position: relative; justify-self: center; width: min(100%, 440px); }
+.hero__foto .midia {
+  aspect-ratio: 4 / 5; border-radius: 999px 999px var(--raio) var(--raio);
+  border: 1px solid var(--cor-dourado);
+}
+.hero__foto::after {             /* segundo filete deslocado, detalhe dourado */
+  content: ''; position: absolute; inset: 14px -14px -14px 14px; z-index: -1;
+  border: 1px solid var(--cor-dourado-30); border-radius: 999px 999px var(--raio) var(--raio);
+}
+.hero__rolar {
+  position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
+  color: var(--cor-dourado); opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .hero { min-height: auto; }
+  .hero__grid { grid-template-columns: 1fr; text-align: center; }
+  .hero__texto { margin-inline: auto; }
+  .hero__acoes { justify-content: center; }
+  .hero__foto { order: -1; width: min(78%, 340px); }
+  .hero__rolar { display: none; }
+}
+
+/* Demais secoes (sobre, servicos, portfolio...) serao estilizadas nas Etapas 3 a 5. */
+
+/* ---------- Sobre ---------- */
+.sobre__grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(2rem,6vw,5rem); align-items:center; }
+.sobre__foto { position:relative; max-width:440px; width:100%; justify-self:center; }
+.sobre__foto .midia { aspect-ratio:4/5; }
+.sobre__foto::after { content:''; position:absolute; inset:16px -16px -16px 16px; border:1px solid var(--cor-dourado); border-radius:var(--raio); z-index:-1; }
+.sobre__texto h2 { font-size:clamp(2.2rem,5vw,3.4rem); margin-bottom:1.5rem; }
+.sobre__texto p { max-width:36rem; }
+.sobre__texto blockquote {
+  margin-top:1.75rem; padding-left:1.25rem; border-left:2px solid var(--cor-dourado);
+  font-family:var(--fonte-titulo); font-style:italic; font-size:1.45rem; line-height:1.4; color:var(--cor-marrom);
+}
+.sobre__numeros { margin-top:2.25rem; display:flex; flex-wrap:wrap; gap:2rem 3rem; }
+.sobre__numeros strong { display:block; font-family:var(--fonte-titulo); font-size:2.4rem; font-weight:500; color:var(--cor-dourado-texto); line-height:1; }
+.sobre__numeros span { font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--cor-marrom); }
+@media (max-width:900px) {
+  .sobre__grid { grid-template-columns:1fr; }
+  .sobre__foto { max-width:340px; }
+}
+
+/* ---------- Diferenciais ---------- */
+.diferenciais__grade { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.5rem; }
+.diferencial { padding:2rem 1.5rem; text-align:center; border:1px solid var(--cor-dourado-30); border-radius:var(--raio); transition:var(--transicao); }
+.diferencial:hover { border-color:var(--cor-dourado); }
+.diferencial svg { width:34px; height:34px; stroke-width:1.2; color:var(--cor-dourado); margin-bottom:1.25rem; }
+.diferencial h3 { font-size:1.6rem; margin-bottom:.75rem; }
+.diferencial p { font-size:.95rem; opacity:.8; }
+
+/* ---------- Depoimentos ---------- */
+.depoimentos__grade { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
+.depoimento { padding:2rem; border:1px solid var(--cor-dourado); border-radius:var(--raio); background:#fff8; display:flex; flex-direction:column; gap:1rem; }
+.depoimento svg { width:28px; height:28px; color:var(--cor-dourado); stroke-width:1.2; }
+.depoimento__texto { font-family:var(--fonte-titulo); font-size:1.35rem; line-height:1.4; flex:1; }
+.depoimento__autor { display:flex; flex-direction:column; font-size:.85rem; color:var(--cor-marrom); }
+.depoimento__autor strong { font-weight:400; letter-spacing:.12em; text-transform:uppercase; color:var(--cor-cafe); }
+.depoimento--pendente { border-style:dashed; }
+.depoimento--pendente .depoimento__texto { color:var(--cor-dourado-texto); font-size:1.1rem; font-family:var(--fonte-texto); letter-spacing:.08em; text-transform:uppercase; }
+
+/* ---------- Localizacao ---------- */
+.local__grade { display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(1.5rem,5vw,3.5rem); align-items:stretch; }
+.local__info { display:flex; flex-direction:column; gap:1.1rem; align-items:flex-start; justify-content:center; }
+.local__cidade { display:flex; align-items:center; gap:.6rem; font-family:var(--fonte-titulo); font-size:2rem; }
+.local__cidade svg { color:var(--cor-dourado-texto); }
+.local__estudio a { color:var(--cor-dourado-texto); border-bottom:1px solid var(--cor-dourado-texto); }
+.contato__info a { color:var(--cor-dourado); border-bottom:1px solid var(--cor-dourado-30); }
+.local__info address { font-style:normal; color:var(--cor-marrom); }
+.mapa { min-height:340px; border:1px solid var(--cor-dourado); border-radius:var(--raio); overflow:hidden; background:var(--cor-cafe); }
+.mapa iframe { width:100%; height:100%; min-height:340px; border:0; display:block; }
+@media (max-width:900px) { .local__grade { grid-template-columns:1fr; } }
+
+/* ---------- Agendamento e contato ---------- */
+.contato__texto { margin-top:1.25rem; opacity:.85; }
+.contato__acoes { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin-bottom:var(--espaco-lg); }
+.contato__info { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem 4rem; font-size:.95rem; }
+.contato__info > li { display:flex; gap:.8rem; align-items:flex-start; max-width:22rem; }
+.contato__info > li > svg { flex:none; width:22px; height:22px; margin-top:.2rem; color:var(--cor-dourado); stroke-width:1.3; }
+.contato__info ul li { opacity:.85; }
+
+/* ---------- Botao flutuante de WhatsApp ---------- */
+.whatsapp-flutuante {
+  position:fixed; right:1.25rem; bottom:1.25rem; z-index:90; width:58px; height:58px; display:grid; place-items:center;
+  border-radius:50%; background:var(--cor-dourado); color:var(--cor-cafe); box-shadow:0 8px 24px rgba(0,0,0,.3);
+  transition:var(--transicao);
+}
+.whatsapp-flutuante:hover { transform:translateY(-3px) scale(1.05); background:var(--cor-offwhite); }
+.whatsapp-flutuante svg { width:26px; height:26px; }
+
+/* ---------- Formulario de agendamento ---------- */
+.agendamento { max-width:620px; margin:0 auto var(--espaco-md); display:grid; grid-template-columns:1fr 1fr; gap:1.1rem 1.25rem; }
+.agendamento label { display:flex; flex-direction:column; gap:.4rem; font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; color:var(--cor-dourado); }
+.agendamento label:nth-of-type(1), .agendamento label:nth-of-type(3) { grid-column:span 1; }
+.agendamento input, .agendamento select {
+  width:100%; padding:.85rem 1rem; font:inherit; font-size:1rem; letter-spacing:normal; text-transform:none;
+  color:var(--cor-cafe); background:var(--cor-offwhite); border:1px solid var(--cor-dourado); border-radius:var(--raio);
+}
+.agendamento input:focus-visible, .agendamento select:focus-visible { outline:2px solid var(--cor-dourado); outline-offset:2px; }
+.agendamento__nota { grid-column:1 / -1; display:flex; gap:.6rem; align-items:flex-start; font-size:.88rem; opacity:.85; }
+.agendamento__nota svg { flex:none; width:18px; height:18px; margin-top:.2rem; color:var(--cor-dourado); }
+.agendamento__enviar { grid-column:1 / -1; }
+.agendamento__aviso { grid-column:1 / -1; text-align:center; font-size:.9rem; color:var(--cor-dourado); min-height:1.2em; }
+@media (max-width:600px) { .agendamento { grid-template-columns:1fr; } }
+
+/* ---------- Depoimentos: selo de teste e prints ---------- */
+.depoimento { position:relative; }
+.depoimento__selo { position:absolute; top:.8rem; right:.8rem; padding:.2rem .6rem; font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; background:var(--cor-cafe); color:var(--cor-dourado); border-radius:999px; }
+.depoimento--print { padding:0; overflow:hidden; }
+.depoimento--print img { width:100%; height:auto; }
+
+/* ---------- Localizacao sem endereco ---------- */
+.local__aviso { color:var(--cor-marrom); max-width:26rem; }
+.local__grade--sem-mapa { grid-template-columns:1fr; justify-items:center; text-align:center; }
+.local__grade--sem-mapa .local__info { align-items:center; }
+[hidden] { display:none !important; }
+
+/* ---------- Janela de agendamento (modal) ---------- */
+.modal-agendamento {
+  margin:auto; width:min(92vw, 560px); max-height:92dvh; overflow:auto; padding:2.25rem 2rem 2rem;
+  background:var(--cor-cafe); color:var(--cor-offwhite); border:1px solid var(--cor-dourado); border-radius:var(--raio);
+}
+.modal-agendamento::backdrop { background:rgba(40,27,21,.75); backdrop-filter:blur(3px); }
+.modal-agendamento h2 { font-size:2.2rem; text-align:center; }
+.modal-agendamento__sub { text-align:center; margin:.6rem 0 1.5rem; opacity:.85; font-size:.95rem; }
+.modal-agendamento__fechar { position:absolute; top:.6rem; right:.6rem; padding:.6rem; color:var(--cor-dourado); }
+.modal-agendamento__fechar svg { width:24px; height:24px; }
+.modal-agendamento .agendamento { margin:0; max-width:none; }
+
+/* ---------- Acessibilidade ---------- */
+.pular-conteudo { position:fixed; left:1rem; top:-4rem; z-index:200; padding:.8rem 1.2rem; background:var(--cor-dourado); color:var(--cor-cafe); transition:top .2s; }
+.pular-conteudo:focus { top:1rem; }
+.secao--escura :focus-visible, .hero :focus-visible, .header :focus-visible { outline-color:var(--cor-dourado); }
+.secao--clara :focus-visible { outline-color:var(--cor-cafe); }
+.secao--clara .placeholder { color: var(--cor-dourado-texto); border-color: var(--cor-dourado-texto); }
+/* Rotulos dourados voltam ao dourado puro nas secoes escuras (contraste 5:1 sobre o marrom) */
+.secao--escura .titulo-secao__rotulo, .secao--escura .rotulo, .secao--escura .placeholder { color: var(--cor-dourado); }
+.secao--escura .placeholder { border-color: var(--cor-dourado); }
+
+/* Contato: Estudio e Formas de pagamento alinhados pela mesma borda esquerda no celular */
+@media (max-width: 700px) {
+  .contato__info { display: grid; grid-template-columns: 1fr; justify-items: start; gap: 1.5rem; width: fit-content; max-width: 100%; margin-inline: auto; }
+  .contato__info > li { max-width: 100%; width: 100%; }
+}
+@media (max-width: 700px) {
+  .contato__info { display: block; width: auto; max-width: 24rem; margin-inline: auto; padding-inline: 0; text-align: left; }
+  .contato__info > li { display: flex; justify-content: flex-start; width: 100%; max-width: none; margin: 0 0 1.5rem; text-align: left; }
+  .contato__info > li:last-child { margin-bottom: 0; }
+}

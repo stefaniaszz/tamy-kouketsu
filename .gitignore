@@ -1,0 +1,6 @@
+.DS_Store
+Thumbs.db
+node_modules/
+
+# fotos e videos originais (pesados, o site usa as versoes em assets/)
+originais/

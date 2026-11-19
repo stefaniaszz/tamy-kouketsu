@@ -1,0 +1,60 @@
+/* Containers, cabecalho, menu e rodape */
+.container { width: min(100% - 2.5rem, var(--largura-max)); margin-inline: auto; }
+
+/* ---------- Cabecalho ---------- */
+.header {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  height: var(--altura-header);
+  display: flex; align-items: center;
+  background: transparent;
+  transition: background var(--transicao), box-shadow var(--transicao), height var(--transicao);
+}
+.header--solido {              /* classe aplicada pelo nav.js ao rolar a pagina */
+  background: var(--cor-cafe-90);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--cor-dourado-30);
+}
+.header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+
+/* LOGO: troque o arquivo em assets/logo/logo.png para atualizar em todo o site */
+.logo img { height: 52px; width: auto; }
+
+.nav__lista { display: flex; align-items: center; gap: 2rem; }
+.nav__link {
+  font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cor-offwhite); position: relative; padding-block: 0.4rem;
+}
+.nav__link::after {
+  content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+  background: var(--cor-dourado); transition: width var(--transicao);
+}
+.nav__link:hover::after, .nav__link:focus-visible::after { width: 100%; }
+
+.nav__toggle { display: none; color: var(--cor-offwhite); }
+
+/* Menu mobile */
+@media (max-width: 900px) {
+  .nav__toggle { display: inline-flex; padding: 0.5rem; }
+  .nav {
+    position: fixed; inset: var(--altura-header) 0 auto 0;
+    background: var(--cor-cafe); padding: 1.5rem 1.25rem 2rem;
+    border-top: 1px solid var(--cor-dourado-30);
+    transform: translateY(-12px); opacity: 0; visibility: hidden;
+    transition: var(--transicao);
+  }
+  .nav--aberto { transform: none; opacity: 1; visibility: visible; }
+  .nav__lista { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  .nav__link { font-size: 0.9rem; }
+  .logo img { height: 44px; }
+}
+
+/* ---------- Rodape ---------- */
+.footer { background: var(--cor-cafe); color: var(--cor-offwhite); padding-block: var(--espaco-lg); text-align: center; }
+.footer .logo img { height: 64px; margin-inline: auto; }
+.footer__texto { margin-top: 1rem; font-size: 0.85rem; opacity: 0.75; }
+
+/* Logo maior no computador (celular continua com o tamanho acima) */
+@media (min-width: 901px) {
+  :root { --altura-header: 96px; }
+  .logo img { height: 68px; }
+}

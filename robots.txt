@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# AO PUBLICAR: adicione a linha abaixo com o endereco final do site
+# Sitemap: https://SEU-DOMINIO/sitemap.xml

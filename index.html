@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="sem-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tamy Kouketsu | Maquiadora e Designer em Torres/RS</title>
+  <script>document.documentElement.classList.remove('sem-js');</script>
+
+  <!-- SEO basico -->
+  <meta name="description" content="Tamy Kouketsu, maquiadora e designer em Torres/RS: maquiagem, extensão de cílios e design de sobrancelhas, com mais de 7 anos de experiência. Agende seu horário.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#493329">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Tamy Kouketsu">
+  <meta property="og:title" content="Tamy Kouketsu | Maquiadora e Designer em Torres/RS">
+  <meta property="og:description" content="Maquiagem, extensão de cílios e design de sobrancelhas em Torres/RS. Agende seu horário.">
+  <!-- AO PUBLICAR: adicione tambem <link rel="canonical">, og:url e og:image com o endereco (URL) final do site. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Tamy Kouketsu — Maquiadora e Designer",
+    "description": "Maquiagem, extensão de cílios e design de sobrancelhas em Torres/RS.",
+    "areaServed": "Torres, RS",
+    "address": { "@type": "PostalAddress", "addressLocality": "Torres", "addressRegion": "RS", "addressCountry": "BR" },
+    "sameAs": ["https://www.instagram.com/tamymaquiadora_/", "https://www.instagram.com/coworking_de_beleza/"]
+  }
+  </script>
+
+  <!-- Carrega a foto do topo mais cedo. Se trocar a foto em js/dados-imagens.js, atualize este caminho. -->
+  <link rel="preload" as="image" href="assets/images/hero/hero.jpg">
+
+  <!-- Google Fonts: Cormorant Garamond (titulos) + Jost (textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css?v=2">
+  <link rel="stylesheet" href="css/base.css?v=2">
+  <link rel="stylesheet" href="css/layout.css?v=2">
+  <link rel="stylesheet" href="css/components.css?v=2">
+  <link rel="stylesheet" href="css/sections.css?v=2">
+  <link rel="stylesheet" href="css/animations.css?v=2">
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===== CABECALHO ===== -->
+  <header class="header" id="topo">
+    <div class="container header__inner">
+      <a class="logo" href="#inicio" aria-label="Tamy Kouketsu — início">
+        <img src="assets/logo/logo.png" alt="Tamy Kouketsu — Maquiadora e Designer" width="156" height="52">
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <nav class="nav" id="menu" aria-label="Navegação principal">
+        <ul class="nav__lista">
+          <li><a class="nav__link" href="#sobre">Sobre</a></li>
+          <li><a class="nav__link" href="#servicos">Serviços</a></li>
+          <li><a class="nav__link" href="#portfolio">Portfólio</a></li>
+          <li><a class="nav__link" href="#depoimentos">Depoimentos</a></li>
+          <li><a class="nav__link" href="#localizacao">Localização</a></li>
+          <li><a class="nav__link" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===== 1. HERO ===== -->
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div class="hero__conteudo" data-reveal>
+          <span class="hero__rotulo">Maquiadora e Designer · Torres/RS</span>
+          <h1 class="hero__titulo">Realce a sua beleza com <em>delicadeza</em> e sofisticação</h1>
+          <p class="hero__texto">
+            Maquiagem, extensão de cílios e design de sobrancelhas, com mais de 7 anos
+            de experiência na área da beleza.
+          </p>
+          <div class="hero__acoes">
+            <!-- Abre o WhatsApp (js/whatsapp.js). Sem numero em js/config.js, leva ao contato. -->
+            <a class="btn btn--primario" href="#contato" data-whatsapp><i data-lucide="calendar"></i>Agendar horário</a>
+            <a class="btn btn--secundario" href="#servicos">Conhecer serviços</a>
+          </div>
+        </div>
+
+        <!-- FOTO DE DESTAQUE: definida em js/dados-imagens.js (chave "hero").
+             O placeholder abaixo aparece apenas se a imagem estiver vazia. -->
+        <div class="hero__foto" data-reveal style="--atraso:.2s">
+          <div class="midia" data-imagem="hero">
+            <div class="placeholder">
+              <i data-lucide="image"></i>
+              <span>Fotografia de destaque<br>conteúdo pendente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="hero__rolar" href="#sobre" aria-label="Rolar para a próxima seção"><i data-lucide="chevron-down"></i></a>
+    </section>
+
+    <!-- ===== 2. SOBRE ===== -->
+    <section class="secao secao--clara" id="sobre">
+      <div class="container sobre__grid">
+        <div class="sobre__foto" data-reveal>
+          <!-- Foto: js/dados-imagens.js (chave "sobre") -->
+          <div class="midia" data-imagem="sobre">
+            <div class="placeholder"><i data-lucide="image"></i><span>Fotografia da Tamy<br>conteúdo pendente</span></div>
+          </div>
+        </div>
+
+        <div class="sobre__texto" data-reveal style="--atraso:.15s">
+          <span class="rotulo">Sobre</span>
+          <h2>Olá, eu sou a Tamy</h2>
+          <p>
+            Sou maquiadora e designer em Torres/RS, com mais de 7 anos de experiência na área da beleza.
+            Trabalho com maquiagem, extensão de cílios e design de sobrancelhas, sempre com atendimento
+            personalizado ao seu gosto.
+          </p>
+          <blockquote>
+            Meu propósito é te oferecer uma experiência elevada, concentrada na tua autoestima e nas tuas expectativas.
+          </blockquote>
+          <ul class="sobre__numeros">
+            <li><strong>+7</strong><span>anos de experiência</span></li>
+            <li><strong>3</strong><span>áreas de atuação</span></li>
+            <li><strong>Torres</strong><span>Rio Grande do Sul</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. SERVICOS ===== -->
+    <section class="secao secao--escura" id="servicos">
+      <div class="container">
+        <div class="titulo-secao" data-reveal>
+          <span class="titulo-secao__rotulo">Serviços</span>
+          <h2>Escolha o seu procedimento</h2>
+        </div>
+        <!-- Os cartoes sao gerados por js/servicos.js a partir de js/dados-servicos.js -->
+        <div id="servicos-conteudo" data-reveal></div>
+        <noscript><p class="servicos__observacao">Ative o JavaScript para ver a lista de serviços e valores.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ===== 4. PORTFOLIO ===== -->
+    <section class="secao secao--clara" id="portfolio">
+      <div class="container">
+        <div class="titulo-secao" data-reveal>
+          <span class="titulo-secao__rotulo">Portfólio</span>
+          <h2>Alguns dos meus trabalhos</h2>
+        </div>
+        <!-- Galeria gerada por js/gallery.js a partir de js/dados-imagens.js -->
+        <div id="portfolio-conteudo"></div>
+        <noscript><p>Ative o JavaScript para ver a galeria.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ===== 5. DIFERENCIAIS ===== -->
+    <section class="secao secao--escura" id="diferenciais">
+      <div class="container">
+        <div class="titulo-secao" data-reveal>
+          <span class="titulo-secao__rotulo">Diferenciais</span>
+          <h2>Cuidado em cada detalhe</h2>
+        </div>
+        <ul class="diferenciais__grade">
+          <li class="diferencial" data-reveal>
+            <i data-lucide="award"></i>
+            <h3>Mais de 7 anos de experiência</h3>
+            <p>Anos dedicados à área da beleza, com foco em maquiagem, cílios e sobrancelhas.</p>
+          </li>
+          <li class="diferencial" data-reveal style="--atraso:.1s">
+            <i data-lucide="heart-handshake"></i>
+            <h3>Atendimento personalizado</h3>
+            <p>Cada atendimento é pensado conforme o seu gosto, o seu estilo e a sua ocasião.</p>
+          </li>
+          <li class="diferencial" data-reveal style="--atraso:.2s">
+            <i data-lucide="sparkles"></i>
+            <h3>Valorização da sua beleza</h3>
+            <p>Realçar o que já é seu, respeitando as características e o formato do seu rosto.</p>
+          </li>
+          <li class="diferencial" data-reveal style="--atraso:.3s">
+            <i data-lucide="gem"></i>
+            <h3>Cuidado com os detalhes</h3>
+            <p>Atenção em cada etapa do procedimento, do mapeamento ao acabamento.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 6. DEPOIMENTOS ===== -->
+    <section class="secao secao--clara" id="depoimentos">
+      <div class="container">
+        <div class="titulo-secao" data-reveal>
+          <span class="titulo-secao__rotulo">Depoimentos</span>
+          <h2>Quem já passou por aqui</h2>
+        </div>
+        <!-- Lista em js/depoimentos.js -->
+        <ul class="depoimentos__grade" id="depoimentos-lista" data-reveal></ul>
+      </div>
+    </section>
+
+    <!-- ===== 7. LOCALIZACAO ===== -->
+    <section class="secao secao--clara" id="localizacao">
+      <div class="container">
+        <div class="titulo-secao" data-reveal>
+          <span class="titulo-secao__rotulo">Localização</span>
+          <h2>Venha me visitar</h2>
+        </div>
+        <div class="local__grade" data-reveal>
+          <div class="local__info">
+            <p class="local__cidade"><i data-lucide="map-pin"></i><span data-config="cidade"></span></p>
+            <p class="local__estudio">Estúdio <a data-instagram="estudio" href="#"><span data-usuario>@coworking_de_beleza</span></a></p>
+            <address data-com-endereco>
+              <span data-config="endereco"></span><br>
+              <span data-config="complemento"></span><br>
+              <span data-config="referencia"></span>
+            </address>
+            <p class="local__aviso" data-sem-endereco hidden>O endereço completo é enviado na confirmação do agendamento, pelo WhatsApp.</p>
+            <a class="btn btn--escuro" data-com-endereco data-mapa-link href="#localizacao">Abrir no Google Maps <i data-lucide="arrow-up-right"></i></a>
+          </div>
+          <!-- Mapa gerado por js/contato.js a partir do endereco em js/config.js -->
+          <div class="mapa" id="mapa" data-com-endereco><div class="placeholder"><i data-lucide="map"></i><span>Mapa<br>carregando…</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. AGENDAMENTO E CONTATO ===== -->
+    <section class="secao secao--escura" id="contato">
+      <div class="container contato">
+        <div class="titulo-secao" data-reveal>
+          <span class="titulo-secao__rotulo">Agendamento</span>
+          <h2>Vamos agendar?</h2>
+          <p class="contato__texto">Será um prazer te atender. Pelo WhatsApp você recebe a confirmação com o procedimento escolhido, data, horário e endereço.</p>
+        </div>
+        <form class="agendamento" id="form-agendamento" data-reveal novalidate>
+          <label>Nome<input name="nome" type="text" autocomplete="name" required></label>
+          <label>Telefone (WhatsApp)<input name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" minlength="14" required></label>
+          <label>Procedimento desejado
+            <select name="servico" required><option value="" selected disabled>Selecione…</option></select>
+          </label>
+          <label>Data desejada<input name="data" type="date" required></label>
+          <p class="agendamento__nota"><i data-lucide="info"></i>A data é uma preferência: a disponibilidade será consultada e confirmada pela Tamy.</p>
+          <button class="btn btn--primario agendamento__enviar" type="submit"><i data-lucide="message-circle"></i>Enviar pelo WhatsApp</button>
+          <p class="agendamento__aviso" id="form-aviso" role="status"></p>
+        </form>
+        <div class="contato__acoes" data-reveal>
+          <a class="btn btn--secundario" data-instagram="profissional" href="#contato"><i data-lucide="arrow-up-right"></i>Instagram <span data-usuario>@tamymaquiadora_</span></a>
+        </div>
+        <ul class="contato__info" data-reveal>
+          <li><i data-lucide="map-pin"></i><span>Estúdio <a data-instagram="estudio" href="#"><span data-usuario>@coworking_de_beleza</span></a><br><span data-config="cidade"></span></span></li>
+          <li><i data-lucide="wallet"></i><span>Formas de pagamento<ul id="pagamento-lista"></ul></span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== RODAPE ===== -->
+  <footer class="footer">
+    <div class="container">
+      <a class="logo" href="#inicio" aria-label="Voltar ao topo">
+        <img src="assets/logo/logo.png" alt="Tamy Kouketsu — Maquiadora e Designer" width="192" height="64" loading="lazy">
+      </a>
+      <p class="footer__texto">© <span id="ano"></span> Tamy Kouketsu · Torres/RS</p>
+    </div>
+  </footer>
+
+  <!-- Botao flutuante de WhatsApp (numero em js/config.js) -->
+  <a class="whatsapp-flutuante" href="#contato" data-whatsapp aria-label="Agendar pelo WhatsApp"><i data-lucide="message-circle"></i></a>
+
+  <script src="js/icones.js"></script>   <!-- icones Lucide (local, sem CDN) -->
+  <script src="js/config.js"></script>
+  <script src="js/dados-imagens.js"></script>   <!-- ALTERAR FOTOS aqui -->
+  <script src="js/dados-servicos.js"></script>  <!-- ALTERAR PRECOS/SERVICOS aqui -->
+  <script src="js/imagens.js"></script>
+  <script src="js/servicos.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/depoimentos.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/agendamento.js"></script>
+  <script src="js/contato.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+/* Animacoes sutis. Elementos com [data-reveal] surgem ao rolar (ver js/animations.js). */
+[data-reveal] {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition-delay: var(--atraso, 0s);
+}
+[data-reveal].visivel { opacity: 1; transform: none; }
+
+/* Sem JavaScript, o conteudo continua visivel */
+.sem-js [data-reveal] { opacity: 1; transform: none; }
+
+@keyframes flutuar { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+.hero__rolar { animation: flutuar 2.4s ease-in-out infinite; }
