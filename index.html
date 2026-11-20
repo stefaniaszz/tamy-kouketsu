@@ -29,6 +29,11 @@
   </script>
 
   <!-- Carrega a foto do topo mais cedo. Se trocar a foto em js/dados-imagens.js, atualize este caminho. -->
+  <!-- Favicon (iniciais "TK" recortadas da logo) -->
+  <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
   <link rel="preload" as="image" href="assets/images/hero/hero.jpg">
 
   <!-- Google Fonts: Cormorant Garamond (titulos) + Jost (textos) -->
@@ -213,16 +218,8 @@
           <div class="local__info">
             <p class="local__cidade"><i data-lucide="map-pin"></i><span data-config="cidade"></span></p>
             <p class="local__estudio">Estúdio <a data-instagram="estudio" href="#"><span data-usuario>@coworking_de_beleza</span></a></p>
-            <address data-com-endereco>
-              <span data-config="endereco"></span><br>
-              <span data-config="complemento"></span><br>
-              <span data-config="referencia"></span>
-            </address>
-            <p class="local__aviso" data-sem-endereco hidden>O endereço completo é enviado na confirmação do agendamento, pelo WhatsApp.</p>
-            <a class="btn btn--escuro" data-com-endereco data-mapa-link href="#localizacao">Abrir no Google Maps <i data-lucide="arrow-up-right"></i></a>
+            <p class="local__aviso">O endereço completo é enviado na confirmação do agendamento, pelo WhatsApp.</p>
           </div>
-          <!-- Mapa gerado por js/contato.js a partir do endereco em js/config.js -->
-          <div class="mapa" id="mapa" data-com-endereco><div class="placeholder"><i data-lucide="map"></i><span>Mapa<br>carregando…</span></div></div>
         </div>
       </div>
     </section>

@@ -25,15 +25,24 @@ window.SERVICOS = {
       nome: 'Maquiagem',
       servicos: [
         {
-          id: 'maquiagem-beauty-social',
-          nome: 'Maquiagem Beauty ou Social',
-          descricao: 'Inspirada nos seus desejos e no seu evento, com perfeição e durabilidade. Você pode optar por uma maquiagem profissional para uma produção completa, com atendimento personalizado ao seu gosto.',
+          id: 'maquiagem-social',
+          nome: 'Maquiagem Social',
+          descricao: 'Ideal para eventos especiais e ocasiões que exigem uma produção mais elaborada. Uma maquiagem completa, com pele de alta durabilidade, acabamento sofisticado, olhos mais trabalhados e cílios inclusos. Pensada para acompanhar você durante eventos mais longos, mantendo a beleza e a elegância por muito mais tempo.',
           detalhes: [
-            { icone: 'clock', texto: 'Atendimento: 45 min a 1h20' },
-            { icone: 'sparkles', texto: 'Beauty ou social' },
-            { icone: 'heart', texto: 'Atendimento personalizado' },
+            { icone: 'sparkles', texto: 'Cílios inclusos' },
+            { icone: 'heart', texto: 'Pele de alta durabilidade' },
           ],
-          preco: 120,
+          preco: 200,
+          precoLegenda: '',
+        },
+        {
+          id: 'maquiagem-express',
+          nome: 'Maquiagem Express',
+          descricao: 'Ideal para eventos mais curtos, ensaios fotográficos e ocasiões que pedem uma produção mais leve. Uma maquiagem delicada e natural, com poucos detalhes e acabamento suave, valorizando sua beleza sem excessos.',
+          detalhes: [
+            { icone: 'info', texto: 'Não inclui cílios postiços' },
+          ],
+          preco: 160,
           precoLegenda: '',
         },
       ],
@@ -53,18 +62,28 @@ window.SERVICOS = {
             { icone: 'calendar', texto: 'Durabilidade: 30 a 45 dias' },
             { icone: 'check', texto: 'Henna ou tintura inclusa' },
           ],
-          preco: 110,
+          preco: 150,
           precoLegenda: '',
         },
         {
           id: 'design-henna-premium',
           nome: 'Design com Henna Premium',
-          descricao: 'Design com cera, navalha ou pinçamento e aplicação de henna, que pigmenta a pele, cobre falhas e desenha as sobrancelhas.',
+          descricao: 'Design estratégico personalizado para o formato das suas sobrancelhas, com aplicação de henna, que pigmenta a pele, cobre falhas, traz volume e corrige assimetrias.',
           detalhes: [
             { icone: 'clock', texto: 'Atendimento: 40 min a 1h30' },
             { icone: 'calendar', texto: 'Durabilidade: 5 a 8 dias' },
           ],
-          preco: 50,
+          preco: 70,
+          precoLegenda: '',
+        },
+        {
+          id: 'design-sobrancelhas-tintura',
+          nome: 'Design de Sobrancelhas + Tintura',
+          descricao: 'O procedimento inclui o design personalizado das sobrancelhas e a aplicação da tintura, que proporciona coloração uniforme, intensifica a tonalidade dos pelos, valoriza o desenho das sobrancelhas e pigmenta fios brancos.',
+          detalhes: [
+            { icone: 'info', texto: 'Observação profissional: diferente da henna, a tintura tem como principal função colorir os fios, não criar um preenchimento intenso na pele. O resultado fica mais voltado à definição e valorização dos pelos naturais.' },
+          ],
+          preco: 95,
           precoLegenda: '',
         },
         {
@@ -72,7 +91,7 @@ window.SERVICOS = {
           nome: 'Design Personalizado',
           descricao: 'Mapeamento natural, com foco na epilação dos pelos, para harmonizar as sobrancelhas e manter um design pensado para o seu rosto.',
           detalhes: [
-            { icone: 'clock', texto: 'Atendimento: 30 min a 1h10' },
+            { icone: 'clock', texto: 'Atendimento: 30 min a 1h' },
             { icone: 'check', texto: 'Incluso spa de sobrancelhas e crescimento dos pelos' },
           ],
           preco: 40,
@@ -86,18 +105,18 @@ window.SERVICOS = {
       id: 'cilios',
       nome: 'Cílios',
       /* Aviso exibido abaixo dos cartoes desta categoria (deixe '' para ocultar) */
-      observacao: 'Remoção de extensão feita por outra profissional, antes da nova aplicação: taxa de R$ 20,00, além do valor dos novos cílios. Avise com antecedência, no agendamento, se precisar de remoção.',
+      observacao: 'Remoção de extensão feita por outra profissional, antes da nova aplicação: taxa de R$ 50,00, além do valor dos novos cílios. Avise com antecedência, no agendamento, se precisar de remoção.',
       servicos: [
         {
           id: 'lash-lifting',
           nome: 'Lash Lifting',
           descricao: 'Curvatura dos cílios naturais, que realça o olhar e traz mais praticidade para usar rímel. Indicado para cílios médios ou longos.',
           detalhes: [
-            { icone: 'clock', texto: 'Atendimento: 50 min a 1h40' },
+            { icone: 'clock', texto: 'Atendimento: 1h a 1h40' },
             { icone: 'calendar', texto: 'Durabilidade: 30 a 60 dias, com avaliação anterior' },
             { icone: 'check', texto: 'Tintura inclusa, caso necessário' },
           ],
-          preco: 110,
+          preco: 150,
           precoLegenda: '',
         },
         {
@@ -106,10 +125,10 @@ window.SERVICOS = {
           nome: 'Efeito Sirena',
           descricao: 'Fio 5D (LU/M) com efeito focado em preencher de 50% a 60% do canto externo do olho, trazendo aquele efeito delineado.',
           detalhes: [
-            { icone: 'clock', texto: 'Atendimento: 1h a 2h' },
-            { icone: 'refresh-cw', texto: 'Manutenção até 15 dias: a partir de R$ 70,00' },
+            { icone: 'clock', texto: 'Atendimento: 1h' },
+            { icone: 'refresh-cw', texto: 'Manutenção até 20 dias: a partir de R$ 90,00' },
           ],
-          preco: 160,
+          preco: 180,
           precoLegenda: 'primeira aplicação',
         },
         {
@@ -118,9 +137,9 @@ window.SERVICOS = {
           nome: 'Foxy Eyes',
           descricao: 'Fio leve e natural: o efeito queridinho de quem gosta de algo natural, mas que ainda assim seja marcante nos olhos.',
           detalhes: [
-            { icone: 'refresh-cw', texto: 'Manutenção até 21 dias ou 50% dos cílios: a partir de R$ 80,00' },
+            { icone: 'refresh-cw', texto: 'Manutenção até 21 dias ou 50% dos cílios: a partir de R$ 90,00' },
           ],
-          preco: 160,
+          preco: 180,
           precoLegenda: 'primeira aplicação',
         },
         {
@@ -129,9 +148,9 @@ window.SERVICOS = {
           nome: 'Volume Brasileiro',
           descricao: 'Fio Y, com volume intermediário que varia conforme a quantidade dos seus cílios naturais.',
           detalhes: [
-            { icone: 'refresh-cw', texto: 'Manutenção até 21 dias ou 50% dos fios: a partir de R$ 80,00' },
+            { icone: 'refresh-cw', texto: 'Manutenção até 21 dias ou 50% dos fios: a partir de R$ 90,00' },
           ],
-          preco: 160,
+          preco: 180,
           precoLegenda: 'primeira aplicação',
         },
         {
@@ -140,9 +159,9 @@ window.SERVICOS = {
           nome: 'Volume Egípcio',
           descricao: 'Fio 5D em formato W, trazendo mais volume e preenchimento, com 1 fio de extensão aplicado por fio natural.',
           detalhes: [
-            { icone: 'refresh-cw', texto: 'Manutenção até 21 dias ou 50% dos cílios: a partir de R$ 80,00' },
+            { icone: 'refresh-cw', texto: 'Manutenção até 21 dias ou 50% dos cílios: a partir de R$ 90,00' },
           ],
-          preco: 160,
+          preco: 180,
           precoLegenda: 'primeira aplicação',
         },
       ],

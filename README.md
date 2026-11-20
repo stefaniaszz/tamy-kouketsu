@@ -1,6 +1,6 @@
 # Site — Tamy Kouketsu (Maquiadora e Designer · Torres/RS)
 
-Site de uma página (landing page) em HTML, CSS e JavaScript puros. Sem frameworks, sem servidor e sem internet para os ícones (só as fontes vêm do Google Fonts).
+Site de uma página (landing page) em HTML, CSS e JavaScript puros. Sem frameworks, sem servidor e sem depender de CDN (ícones e fontes ficam dentro do próprio projeto).
 
 ## Como abrir no computador
 - Dê dois cliques em `index.html`. Pronto.
@@ -9,15 +9,15 @@ Site de uma página (landing page) em HTML, CSS e JavaScript puros. Sem framewor
 ## Onde alterar cada coisa
 | O que | Arquivo |
 |---|---|
-| WhatsApp, mensagem automática, Instagram, **endereço**, formas de pagamento | `js/config.js` |
+| WhatsApp, mensagem automática, Instagram, cidade, formas de pagamento | `js/config.js` |
 | Serviços, **preços**, descrições, duração, condições de agendamento | `js/dados-servicos.js` |
 | **Fotos** (topo, sobre, serviços, portfólio, vídeo) | `js/dados-imagens.js` + pasta `assets/` |
-| **Depoimentos** (hoje são fictícios, só para teste) | `js/depoimentos.js` |
+| **Depoimentos** (prints de clientes) | `js/depoimentos.js` |
 | Cores e fontes | `css/variables.css` |
 | Textos fixos das seções | `index.html` |
 
-### Endereço e mapa
-Preencha `endereco`, `complemento` e `mapaBusca` em `js/config.js`. Enquanto estiver vazio, o mapa e o botão "Abrir no Maps" ficam ocultos.
+### Endereço
+O endereço não aparece no site: é enviado à cliente na confirmação do agendamento, pelo WhatsApp.
 
 ### WhatsApp
 O número fica em `whatsappNumero` (formato `55` + DDD + número, só dígitos).
@@ -26,8 +26,8 @@ O número fica em `whatsappNumero` (formato `55` + DDD + número, só dígitos).
 Substitua o arquivo na pasta indicada mantendo o nome, ou ajuste o caminho em `js/dados-imagens.js`. Cada pasta de `assets/images/` tem um `LEIA-ME.txt`.
 
 ## Antes de publicar
-1. Confirmar o número do WhatsApp e preencher o endereço do estúdio.
-2. Trocar os depoimentos fictícios pelos prints reais (ou remover a seção).
+1. Fazer um teste real de agendamento pelo WhatsApp.
+2. Autorização das clientes para prints e fotos: confirmada pela Tamy em 19/11.
 3. Confirmar autorização das clientes para uso das fotos.
 4. Informar a URL final em `index.html` (`canonical`, `og:url`, `og:image`) e em `robots.txt`.
 5. Publicar a pasta inteira em qualquer hospedagem estática (Netlify, GitHub Pages, Vercel, Hostinger etc.).

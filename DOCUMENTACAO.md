@@ -1,7 +1,7 @@
 # Documentação — Site Tamy Kouketsu
 
 Landing page de **Tamy Kouketsu — Maquiadora e Designer (Torres/RS)**.
-Tecnologias: HTML5, CSS3 e JavaScript (ES6+), sem frameworks e sem back-end. Ícones Lucide embutidos localmente. Fontes: Google Fonts (Cormorant Garamond e Jost).
+Tecnologias: HTML5, CSS3 e JavaScript (ES6+), sem frameworks e sem back-end. Ícones Lucide e fontes (Cormorant Garamond e Jost) hospedados no próprio site, sem depender de CDN ou Google.
 
 Última atualização desta documentação: 19/11/2026.
 
@@ -46,6 +46,7 @@ README.md             Resumo rápido
 DOCUMENTACAO.md       Este arquivo
 .gitignore
 css/
+  fonts.css           Declaração das fontes locais (assets/fonts)
   variables.css       Cores, fontes, espaçamentos, altura do cabeçalho
   base.css            Reset e estilos gerais
   layout.css          Cabeçalho, menu mobile, rodapé, logo
@@ -53,7 +54,7 @@ css/
   sections.css        Estilo de cada seção, formulário, modal, botão flutuante
   animations.css      Animações de entrada (reveal)
 js/
-  config.js           WhatsApp, mensagem, Instagram, endereço, pagamento
+  config.js           WhatsApp, mensagem, Instagram, cidade, pagamento
   dados-servicos.js   Serviços, preços, condições de agendamento
   dados-imagens.js    Caminho de todas as imagens e vídeos
   depoimentos.js      Depoimentos e o código que os desenha
@@ -64,10 +65,11 @@ js/
   animations.js       Animação ao rolar (IntersectionObserver)
   whatsapp.js         Monta o link wa.me
   agendamento.js      Formulário em pop-up e validação
-  contato.js          Preenche contato, Instagram, pagamento e mapa
+  contato.js          Preenche cidade, Instagram e pagamento
   icones.js           Ícones Lucide embutidos (sem CDN)
   main.js             Inicialização
 assets/
+  fonts/              Fontes em woff2 (latin)
   logo/               logo.png e logo-original.png
   images/             hero, sobre, servicos, depoimentos, portfolio
   videos/             trabalho-1.mp4 e capa
@@ -83,8 +85,8 @@ originais/            Arquivos originais (fora do GitHub)
 3. **Serviços (`#servicos`)** — abas Maquiagem, Sobrancelhas e Cílios; cartões com carrossel de fotos, detalhes e preço "a partir de"; bloco de condições de agendamento.
 4. **Portfólio (`#portfolio`)** — galeria com filtros, lightbox e vídeo; botão "Ver no Instagram".
 5. **Diferenciais (`#diferenciais`)**.
-6. **Depoimentos (`#depoimentos`)** — hoje fictícios (ver pendências).
-7. **Localização (`#localizacao`)** — estúdio, cidade e mapa (mapa oculto enquanto não houver endereço).
+6. **Depoimentos (`#depoimentos`)** — 7 prints de conversas e comentários de clientes, ordenados por cor (4 por linha no desktop).
+7. **Localização (`#localizacao`)** — cidade, estúdio e aviso de que o endereço é enviado na confirmação do agendamento (sem endereço nem mapa na página).
 8. **Contato (`#contato`)** — formulário de agendamento, botão do Instagram, estúdio e formas de pagamento.
 9. **Rodapé** e **botão flutuante de WhatsApp**.
 
@@ -96,13 +98,13 @@ originais/            Arquivos originais (fora do GitHub)
 - `whatsappNumero`: formato `55` + DDD + número, só dígitos. Atual: `5548999633286`.
 - `mensagens.formulario`: texto automático enviado à Tamy. Marcadores: `{nome}`, `{telefone}`, `{servico}`, `{data}`. Use `*texto*` para negrito do WhatsApp.
 - `instagramProfissional`: `@tamymaquiadora_`. `instagramEstudio`: `@coworking_de_beleza`.
-- `endereco`, `complemento`, `referencia`, `mapaBusca`: **vazios**. Ao preencher, o mapa e o botão "Abrir no Maps" aparecem.
+- Endereço: não é exibido no site; é enviado na confirmação do agendamento, pelo WhatsApp.
 - `pagamento`: lista exibida no contato (Pix; débito e crédito com taxa fixa de R$ 5,00 à vista).
 
 ### 5.2 `js/dados-servicos.js`
 - `prefixoPreco`: texto antes do valor (hoje "a partir de").
 - Cada serviço tem id, nome, descrição, detalhes, preço e duração. Para mudar um valor, edite só o número do serviço.
-- Serviços atuais: Maquiagem Beauty ou Social (R$ 120), Brow Lamination (R$ 110), Design com Henna Premium (R$ 50), Design Personalizado (R$ 40), Lash Lifting (R$ 110) e cílios Efeito Sirena, Foxy Eyes, Volume Brasileiro e Volume Egípcio (R$ 160 na primeira aplicação; manutenção a partir de R$ 70/80). Remoção de cílios: R$ 20.
+- Serviços atuais (valores do catálogo de 19/11): Maquiagem Social (R$ 200), Maquiagem Express (R$ 160), Brow Lamination (R$ 150), Design com Henna Premium (R$ 70), Design de Sobrancelhas + Tintura (R$ 95), Design Personalizado (R$ 40), Lash Lifting (R$ 150) e cílios Efeito Sirena, Foxy Eyes, Volume Brasileiro e Volume Egípcio (R$ 180 na primeira aplicação; manutenção a partir de R$ 90). Os preços aparecem com "a partir de". Remoção de cílios: R$ 20 (ver pendências).
 - `CONDICOES_AGENDAMENTO`: sinal de 30%, multa de 50%, reagendamento com 48h de antecedência, tolerância de 10 minutos.
 
 ### 5.3 `js/dados-imagens.js` e `assets/`
@@ -112,7 +114,7 @@ originais/            Arquivos originais (fora do GitHub)
 - Cada pasta de `assets/images/` tem um `LEIA-ME.txt`.
 
 ### 5.4 `js/depoimentos.js`
-- Lista `DEPOIMENTOS`. Os três atuais têm `ficticio: true`. Para usar print de conversa, preencha `imagem` com o caminho do arquivo em `assets/images/depoimentos/`.
+- Lista `DEPOIMENTOS`: hoje 7 prints (`assets/images/depoimentos/depoimento-1.jpg` a `depoimento-7.jpg`, ordenados por cor: 4 neutros e depois 3 vermelhos). Para adicionar outro, coloque a imagem na pasta e acrescente uma linha com `imagem` e `alt`.
 
 ### 5.5 `js/gallery.js`
 - `POR_VEZ_CELULAR` (hoje 6): quantas fotos aparecem por vez no celular antes do "Ver mais". No computador aparecem todas.
@@ -120,7 +122,7 @@ originais/            Arquivos originais (fora do GitHub)
 ### 5.6 CSS
 - Cores e fontes: `css/variables.css`.
 - Tamanho da logo: `css/layout.css` (52 px base, 44 px no celular, 68 px no computador).
-- Os links de CSS no `index.html` têm `?v=2`. Ao fazer alterações grandes de estilo depois de publicar, aumente o número (`?v=3`…) para forçar a atualização no navegador das clientes.
+- Os links de CSS no `index.html` têm `?v=3`. Ao fazer alterações de estilo depois de publicar, aumente o número (`?v=4`…) para forçar a atualização no navegador das clientes.
 
 ---
 
@@ -138,7 +140,7 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 ## 7. Acessibilidade, desempenho e SEO
 
 - **Acessibilidade:** link "Pular para o conteúdo"; foco visível; menu com `aria-expanded` e rótulo que muda (Abrir/Fechar menu); galeria e filtros com `aria-pressed`; lightbox em `<dialog>` com teclado e gesto de deslizar; todas as imagens com `alt`; um único `<h1>`; respeita `prefers-reduced-motion`; contraste de texto corrigido (dourado `#7D5F2E` sobre fundo claro).
-- **Desempenho:** ícones locais (sem CDN), foto do topo pré-carregada, imagens abaixo da dobra com `loading="lazy"`, vídeo só toca enquanto está visível, fontes enxutas com `display=swap`.
+- **Desempenho:** ícones locais (sem CDN), foto do topo pré-carregada, imagens abaixo da dobra com `loading="lazy"`, vídeo só toca enquanto está visível, fontes locais com pré-carregamento e `display=swap`.
 - **SEO:** título e descrição, Open Graph, `theme-color`, JSON-LD (BeautySalon, sem endereço nem telefone), `robots.txt`.
 
 ---
@@ -146,6 +148,10 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 ## 8. O que já foi feito e testado
 
 **Etapas concluídas:** 1 (planejamento), 2 a 5 (construção das seções, catálogo, carrossel, galeria, vídeo, formulário), 6 (revisão mobile, acessibilidade, desempenho, SEO) e 7 (testes finais e entrega).
+
+**Revisão mobile (19/11):** fontes passaram a ser locais (evita texto trocando de fonte ao carregar); números em estilo alinhado (a Cormorant usa números "antigos" por padrão); trava de rolagem lateral (`overflow-x: clip` e `overscroll-behavior-x`); o deslize do carrossel não arrasta mais a página; quebra de linha dos títulos balanceada.
+
+**Atualização de 19/11 (tarde):** endereço e mapa removidos da página; 6 prints de depoimentos reais no lugar dos fictícios; valores atualizados conforme o catálogo novo; Maquiagem Beauty ou Social substituída por Maquiagem Social (R$ 200) e Maquiagem Express (R$ 160); novo serviço Design de Sobrancelhas + Tintura (R$ 95), com 3 fotos.
 
 **Pedidos extras atendidos:** valores com "a partir de"; fotos do catálogo no carrossel de cada serviço; vídeo sem som e com autoplay; mensagem automática com nome, telefone, procedimento e data; formulário em pop-up; foto do topo ("primeira foto") e da seção Sobre ("segunda foto"); depoimentos fictícios de teste; "Ver mais" no portfólio do celular; logo maior no computador; alinhamento de Estúdio e Formas de pagamento no celular; originais organizados em `originais/`.
 
@@ -157,7 +163,7 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 - Lightbox abre e navega pelo teclado; vídeo mudo, em loop e com autoplay.
 - "Ver mais" do portfólio: 6 fotos iniciais, +6 por clique, reinicia ao trocar de filtro e some no computador.
 
-**Limites dos testes:** o ambiente de teste não tem internet, então Google Fonts e o mapa do Google não foram vistos carregando, e nada foi testado em celular ou navegador reais.
+**Limites dos testes:** o ambiente de teste não tem internet, então o mapa do Google não foi visto carregando, e nada foi testado em celular ou navegador reais.
 
 ---
 
@@ -166,13 +172,13 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 ### Informações que dependem da Stefania/Tamy
 | # | Pendência | Onde resolver |
 |---|---|---|
-| 1 | **Endereço correto do estúdio.** O do catálogo (Av. Barão do Rio Branco, Edifício Augusto Zortea, sala 602) foi informado como desatualizado. | `js/config.js` (`endereco`, `complemento`, `mapaBusca`) |
-| 2 | **Depoimentos reais.** Os 3 atuais são fictícios; remover antes de publicar e usar prints de conversas. | `js/depoimentos.js` |
-| 3 | **Autorização das clientes** para usar as fotos no site público. | — |
+| 1 | **Valor da remoção de extensão:** havia divergência no catálogo (R$ 50 x R$ 20). Confirmado pela cliente: R$ 50 (já ajustado no site). | `js/dados-servicos.js` |
+| 2 | ~~Autorização das clientes~~ — confirmada pela Tamy em 19/11. Os 7 prints atuais não mostram nomes de clientes. | — |
+| 3 | ~~Autorização das clientes para as fotos~~ — confirmada pela Tamy em 19/11. | — |
 | 4 | **3 fotos sem classificação** (maquiagem, cílios ou sobrancelhas?). | `assets/images/portfolio/sem-classificacao/` + `js/dados-imagens.js` |
 | 5 | Confirmar que a foto `E27E07FB…` é de **maquiagem** (foi usada como primeira foto de maquiagem). | `js/dados-imagens.js` |
 | 6 | **Lash Lifting** tem só a foto do catálogo; incluir mais fotos se houver. | `js/dados-imagens.js` |
-| 7 | **Favicon:** não foi criado, porque a logo é larga e não se deve inventar símbolo. Se a Tamy tiver um ícone quadrado, adicionar. | `index.html` (`<link rel="icon">`) |
+| 7 | **Favicon:** criado com as iniciais "TK" recortadas da própria logo (sem símbolo novo) em `assets/favicon/` e ligado no `<head>`. Conferir se a Tamy aprova o visual. | `index.html` |
 
 ### Ao publicar
 | # | Tarefa |
@@ -185,7 +191,7 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 | # | Verificação |
 |---|---|
 | 11 | Abrir o site publicado em um **celular real** (iPhone e Android) e testar o agendamento de ponta a ponta. |
-| 12 | Conferir se as **fontes do Google** carregam e se o **mapa** aparece depois de preencher o endereço. |
+| 12 | Conferir a aparência dos prints de depoimento em celulares reais. |
 | 13 | Testar em Chrome, Safari e Edge. |
 | 14 | Fazer uma mensagem de teste de verdade para o WhatsApp da Tamy e confirmar que o número abre a conversa certa. |
 | 15 | Rodar o relatório do Lighthouse (Chrome → F12 → Lighthouse) depois de publicado. |

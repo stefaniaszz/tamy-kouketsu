@@ -35,12 +35,18 @@ window.IMAGENS = {
   /* FOTOS DE CADA SERVICO — a chave deve ser igual ao "id" do servico em
      js/dados-servicos.js. A primeira foto da lista e a que aparece primeiro. */
   servicos: {
-    'maquiagem-beauty-social': [
+    'maquiagem-social': [
+      { src: 'assets/images/servicos/maquiagem-social.jpg',   alt: 'Maquiagem social com olhos trabalhados', posicao: '50% 30%' },
+      { src: 'assets/images/servicos/maquiagem-social-2.jpg', alt: 'Maquiagem social com acabamento sofisticado', posicao: '50% 30%' },
+      // fotos anteriores da maquiagem (catalogo)
       'assets/images/servicos/maquiagem-beauty-social.jpg',
       'assets/images/servicos/maquiagem-beauty-social-2.jpg',
       'assets/images/servicos/maquiagem-beauty-social-3.jpg',
       'assets/images/servicos/maquiagem-beauty-social-4.jpg',
       'assets/images/servicos/maquiagem-beauty-social-5.jpg',
+    ],
+    'maquiagem-express': [
+      { src: 'assets/images/servicos/maquiagem-express.jpg', alt: 'Maquiagem express, delicada e natural', posicao: '50% 30%' },
     ],
     'brow-lamination': [
       'assets/images/servicos/brow-lamination.jpg',
@@ -55,6 +61,11 @@ window.IMAGENS = {
     'design-personalizado': [
       'assets/images/servicos/design-personalizado.jpg',
       'assets/images/servicos/design-personalizado-2.jpg',
+    ],
+    'design-sobrancelhas-tintura': [
+      { src: 'assets/images/servicos/design-sobrancelhas-tintura.jpg',   alt: 'Design de sobrancelhas com tintura', posicao: '50% 30%' },
+      { src: 'assets/images/servicos/design-sobrancelhas-tintura-2.jpg', alt: 'Sobrancelhas com tintura, vista de perto', posicao: '50% 40%' },
+      { src: 'assets/images/servicos/design-sobrancelhas-tintura-3.jpg', alt: 'Resultado do design com tintura', posicao: '50% 40%' },
     ],
     'lash-lifting': [
       'assets/images/servicos/lash-lifting.jpg',          // foto do catalogo (sem fotos proprias ainda)
