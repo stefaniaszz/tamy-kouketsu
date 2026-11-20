@@ -73,7 +73,7 @@ assets/
   fonts/              Fontes em woff2 (latin)
   logo/               logo.png e logo-original.png
   favicon/            Favicon "TK" (.ico, 32, 192, 512 e apple-touch-icon), feito a partir da logo
-  images/             hero, sobre, servicos, depoimentos (depoimento-1..7.jpg), portfolio
+  images/             hero, sobre, servicos, depoimentos (depoimento-1..4.jpg), portfolio
   videos/             trabalho-1.mp4 e capa
 originais/            Arquivos originais (fora do GitHub)
 ```
@@ -87,7 +87,7 @@ originais/            Arquivos originais (fora do GitHub)
 3. **Serviços (`#servicos`)** — abas Maquiagem, Sobrancelhas e Cílios; cartões com carrossel de fotos, detalhes e preço "a partir de"; bloco de condições de agendamento.
 4. **Portfólio (`#portfolio`)** — galeria com filtros, lightbox e vídeo; botão "Ver no Instagram".
 5. **Diferenciais (`#diferenciais`)**.
-6. **Depoimentos (`#depoimentos`)** — 7 prints de conversas e comentários de clientes, ordenados por cor (4 por linha no desktop).
+6. **Depoimentos (`#depoimentos`)** — 4 prints de conversas de clientes (4 por linha no desktop).
 7. **Localização (`#localizacao`)** — cidade, estúdio e aviso de que o endereço é enviado na confirmação do agendamento (sem endereço nem mapa na página).
 8. **Contato (`#contato`)** — formulário de agendamento, botão do Instagram, estúdio e formas de pagamento.
 9. **Rodapé** e **botão flutuante de WhatsApp**.
@@ -116,7 +116,7 @@ originais/            Arquivos originais (fora do GitHub)
 - Cada pasta de `assets/images/` tem um `LEIA-ME.txt`.
 
 ### 5.4 `js/depoimentos.js`
-- Lista `DEPOIMENTOS`: hoje 7 prints (`assets/images/depoimentos/depoimento-1.jpg` a `depoimento-7.jpg`, ordenados por cor: 4 neutros e depois 3 vermelhos). Para adicionar outro, coloque a imagem na pasta e acrescente uma linha com `imagem` e `alt`.
+- Lista `DEPOIMENTOS`: hoje 4 prints (`assets/images/depoimentos/depoimento-1.jpg` a `depoimento-4.jpg`). Para adicionar outro, coloque a imagem na pasta e acrescente uma linha com `imagem` e `alt`.
 
 ### 5.5 `js/gallery.js`
 - `POR_VEZ_CELULAR` (hoje 6): quantas fotos aparecem por vez no celular antes do "Ver mais". No computador aparecem todas.
@@ -155,7 +155,7 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 
 **Atualização de 19/11 (tarde):** endereço e mapa removidos da página; prints de depoimentos reais no lugar dos fictícios; valores atualizados conforme o catálogo novo; Maquiagem Beauty ou Social substituída por Maquiagem Social (R$ 200) e Maquiagem Express (R$ 160); novo serviço Design de Sobrancelhas + Tintura (R$ 95), com 3 fotos.
 
-**Atualização de 19/11 (noite):** taxa de remoção de extensão confirmada em R$ 50; autorização das clientes (prints e fotos) confirmada pela Tamy; depoimentos trocados pelos 7 prints novos (`depoimento-1..7.jpg`), ordenados por cor e exibidos 4 por linha no desktop, 2 no tablet e 1 no celular estreito (`css/sections.css`); favicon "TK" criado a partir da logo e ligado no `<head>`; commit `c8c896d` feito no clone local (o `git push` precisa ser rodado no terminal do computador).
+**Atualização de 19/11 (noite):** os 3 depoimentos de fundo vermelho (Instagram) foram removidos, restando 4 prints de conversa;  taxa de remoção de extensão confirmada em R$ 50; autorização das clientes (prints e fotos) confirmada pela Tamy; depoimentos trocados pelos prints novos (`depoimento-1..4.jpg`), exibidos 4 por linha no desktop, 2 no tablet e 1 no celular estreito (`css/sections.css`); favicon "TK" criado a partir da logo e ligado no `<head>`; commit `c8c896d` feito no clone local (o `git push` precisa ser rodado no terminal do computador).
 
 **Pedidos extras atendidos:** valores com "a partir de"; fotos do catálogo no carrossel de cada serviço; vídeo sem som e com autoplay; mensagem automática com nome, telefone, procedimento e data; formulário em pop-up; foto do topo ("primeira foto") e da seção Sobre ("segunda foto"); depoimentos de teste (já substituídos pelos reais); "Ver mais" no portfólio do celular; logo maior no computador; alinhamento de Estúdio e Formas de pagamento no celular; originais organizados em `originais/`.
 
@@ -177,7 +177,7 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 | # | Pendência | Onde resolver |
 |---|---|---|
 | 1 | **Valor da remoção de extensão:** havia divergência no catálogo (R$ 50 x R$ 20). Confirmado pela cliente: R$ 50 (já ajustado no site). | `js/dados-servicos.js` |
-| 2 | ~~Autorização das clientes~~ — confirmada pela Tamy em 19/11. Os 7 prints atuais não mostram nomes de clientes. | — |
+| 2 | ~~Autorização das clientes~~ — confirmada pela Tamy em 19/11. Os prints atuais não mostram nomes de clientes. | — |
 | 3 | ~~Autorização das clientes para as fotos~~ — confirmada pela Tamy em 19/11. | — |
 | 4 | **3 fotos sem classificação** (maquiagem, cílios ou sobrancelhas?). | `assets/images/portfolio/sem-classificacao/` + `js/dados-imagens.js` |
 | 5 | Confirmar que a foto `E27E07FB…` é de **maquiagem** (foi usada como primeira foto de maquiagem). | `js/dados-imagens.js` |

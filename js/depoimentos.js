@@ -4,7 +4,7 @@
      1) Texto:  { nome: 'Nome', servico: 'Lash Lifting', texto: 'Texto do depoimento' }
      2) Print de conversa:  { imagem: 'assets/images/depoimentos/depoimento-1.jpg', alt: 'Conversa com cliente' }
         (coloque os prints na pasta assets/images/depoimentos/)
-   Os 7 prints abaixo sao depoimentos reais de clientes, ordenados por cor (4 neutros na 1a linha, 3 vermelhos na 2a; a grade esta em css/sections.css). Para adicionar outro, coloque a
+   Os 4 prints abaixo sao depoimentos reais de clientes (1 linha de 4 no desktop; a grade esta em css/sections.css). Para adicionar outro, coloque a
    imagem na pasta e acrescente uma linha. (Itens com  ficticio: true  ganham a etiqueta
    "Exemplo de teste".)
    ========================================================================== */
@@ -13,9 +13,6 @@ window.DEPOIMENTOS = [
   { imagem: 'assets/images/depoimentos/depoimento-2.jpg', alt: 'Conversa de cliente agradecendo: maquiagem perfeita, durou até o final da formatura e atendimento maravilhoso' },
   { imagem: 'assets/images/depoimentos/depoimento-3.jpg', alt: 'Conversa de cliente: missão cumprida, terminou o dia com a make intacta' },
   { imagem: 'assets/images/depoimentos/depoimento-4.jpg', alt: 'Conversa de cliente: a maquiagem e o cabelo duraram a festa toda' },
-  { imagem: 'assets/images/depoimentos/depoimento-5.jpg', alt: 'Resposta de cliente no Instagram: amou o trabalho, o capricho, o atendimento e o conjunto todo' },
-  { imagem: 'assets/images/depoimentos/depoimento-6.jpg', alt: 'Resposta de cliente no Instagram: excelente maquiadora e, como pessoa, delicada e atenciosa' },
-  { imagem: 'assets/images/depoimentos/depoimento-7.jpg', alt: 'Resposta de cliente no Instagram: profissional atenciosa, de mão leve e ótimo atendimento' },
 ];
 
 (function () {

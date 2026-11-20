@@ -12,7 +12,7 @@ Site de uma página (landing page) em HTML, CSS e JavaScript puros. Sem framewor
 | WhatsApp, mensagem automática, Instagram, cidade, formas de pagamento | `js/config.js` |
 | Serviços, **preços**, descrições, duração, condições de agendamento | `js/dados-servicos.js` |
 | **Fotos** (topo, sobre, serviços, portfólio, vídeo) | `js/dados-imagens.js` + pasta `assets/` |
-| **Depoimentos** (7 prints de clientes, 4 por linha) | `js/depoimentos.js` + `assets/images/depoimentos/` |
+| **Depoimentos** (4 prints de clientes, 4 por linha) | `js/depoimentos.js` + `assets/images/depoimentos/` |
 | **Favicon** ("TK", feito da logo) | `assets/favicon/` + `<head>` do `index.html` |
 | Cores e fontes | `css/variables.css` |
 | Textos fixos das seções | `index.html` |
