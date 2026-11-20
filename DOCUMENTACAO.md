@@ -3,7 +3,7 @@
 Landing page de **Tamy Kouketsu — Maquiadora e Designer (Torres/RS)**.
 Tecnologias: HTML5, CSS3 e JavaScript (ES6+), sem frameworks e sem back-end. Ícones Lucide e fontes (Cormorant Garamond e Jost) hospedados no próprio site, sem depender de CDN ou Google.
 
-Última atualização desta documentação: 19/11/2026.
+Última atualização desta documentação: 19/11/2026 (noite).
 
 ---
 
@@ -29,7 +29,7 @@ Tecnologias: HTML5, CSS3 e JavaScript (ES6+), sem frameworks e sem back-end. Íc
 
 **Rodar localmente:** dê dois cliques em `index.html`. Opcionalmente, rode `python -m http.server 8000` na pasta e abra `http://localhost:8000`.
 
-**GitHub Pages:** envie a pasta para um repositório e ative em Settings → Pages (branch `main`, pasta `/ (root)`). O site usa caminhos relativos e funciona dentro de subpasta (`usuario.github.io/repositorio/`).
+**GitHub Pages:** o repositório é `stefaniaszz/tamy-kouketsu` (branch `main`) e a publicação é feita pelo workflow `.github/workflows/jekyll-gh-pages.yml` a cada `git push`. Em Settings → Pages, a fonte deve ser "GitHub Actions". O site usa caminhos relativos e funciona dentro de subpasta (`usuario.github.io/repositorio/`).
 
 **Vercel:** importe o mesmo repositório em vercel.com/new, framework "Other", sem build command e sem output directory. Publica a cada `git push`.
 
@@ -45,6 +45,7 @@ robots.txt            Regras para buscadores
 README.md             Resumo rápido
 DOCUMENTACAO.md       Este arquivo
 .gitignore
+.github/workflows/  Publicação no GitHub Pages (jekyll-gh-pages.yml)
 css/
   fonts.css           Declaração das fontes locais (assets/fonts)
   variables.css       Cores, fontes, espaçamentos, altura do cabeçalho
@@ -71,7 +72,8 @@ js/
 assets/
   fonts/              Fontes em woff2 (latin)
   logo/               logo.png e logo-original.png
-  images/             hero, sobre, servicos, depoimentos, portfolio
+  favicon/            Favicon "TK" (.ico, 32, 192, 512 e apple-touch-icon), feito a partir da logo
+  images/             hero, sobre, servicos, depoimentos (depoimento-1..7.jpg), portfolio
   videos/             trabalho-1.mp4 e capa
 originais/            Arquivos originais (fora do GitHub)
 ```
@@ -151,9 +153,11 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 
 **Revisão mobile (19/11):** fontes passaram a ser locais (evita texto trocando de fonte ao carregar); números em estilo alinhado (a Cormorant usa números "antigos" por padrão); trava de rolagem lateral (`overflow-x: clip` e `overscroll-behavior-x`); o deslize do carrossel não arrasta mais a página; quebra de linha dos títulos balanceada.
 
-**Atualização de 19/11 (tarde):** endereço e mapa removidos da página; 6 prints de depoimentos reais no lugar dos fictícios; valores atualizados conforme o catálogo novo; Maquiagem Beauty ou Social substituída por Maquiagem Social (R$ 200) e Maquiagem Express (R$ 160); novo serviço Design de Sobrancelhas + Tintura (R$ 95), com 3 fotos.
+**Atualização de 19/11 (tarde):** endereço e mapa removidos da página; prints de depoimentos reais no lugar dos fictícios; valores atualizados conforme o catálogo novo; Maquiagem Beauty ou Social substituída por Maquiagem Social (R$ 200) e Maquiagem Express (R$ 160); novo serviço Design de Sobrancelhas + Tintura (R$ 95), com 3 fotos.
 
-**Pedidos extras atendidos:** valores com "a partir de"; fotos do catálogo no carrossel de cada serviço; vídeo sem som e com autoplay; mensagem automática com nome, telefone, procedimento e data; formulário em pop-up; foto do topo ("primeira foto") e da seção Sobre ("segunda foto"); depoimentos fictícios de teste; "Ver mais" no portfólio do celular; logo maior no computador; alinhamento de Estúdio e Formas de pagamento no celular; originais organizados em `originais/`.
+**Atualização de 19/11 (noite):** taxa de remoção de extensão confirmada em R$ 50; autorização das clientes (prints e fotos) confirmada pela Tamy; depoimentos trocados pelos 7 prints novos (`depoimento-1..7.jpg`), ordenados por cor e exibidos 4 por linha no desktop, 2 no tablet e 1 no celular estreito (`css/sections.css`); favicon "TK" criado a partir da logo e ligado no `<head>`; commit `c8c896d` feito no clone local (o `git push` precisa ser rodado no terminal do computador).
+
+**Pedidos extras atendidos:** valores com "a partir de"; fotos do catálogo no carrossel de cada serviço; vídeo sem som e com autoplay; mensagem automática com nome, telefone, procedimento e data; formulário em pop-up; foto do topo ("primeira foto") e da seção Sobre ("segunda foto"); depoimentos de teste (já substituídos pelos reais); "Ver mais" no portfólio do celular; logo maior no computador; alinhamento de Estúdio e Formas de pagamento no celular; originais organizados em `originais/`.
 
 **Testes automatizados (navegador headless):**
 - 7 resoluções (320, 375, 414, 768, 1024, 1366 e 1920 px): sem rolagem lateral e sem erros de JavaScript.
@@ -163,7 +167,7 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 - Lightbox abre e navega pelo teclado; vídeo mudo, em loop e com autoplay.
 - "Ver mais" do portfólio: 6 fotos iniciais, +6 por clique, reinicia ao trocar de filtro e some no computador.
 
-**Limites dos testes:** o ambiente de teste não tem internet, então o mapa do Google não foi visto carregando, e nada foi testado em celular ou navegador reais.
+**Limites dos testes:** o ambiente de teste não tem internet e nada foi testado em celular ou navegador reais nem no deploy real do GitHub Pages.
 
 ---
 
@@ -183,6 +187,8 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 ### Ao publicar
 | # | Tarefa |
 |---|---|
+| 7a | Rodar `git push origin main` no terminal do computador (o commit `c8c896d` já existe no clone) e conferir se o workflow do GitHub Pages terminou sem erro. |
+| 7b | Apagar os 6 arquivos antigos `assets/images/depoimentos/print-1.jpg` a `print-6.jpg` (não são mais usados e ficaram fora do commit). |
 | 8 | Colocar a URL final em `canonical`, `og:url` e `og:image` no `index.html` (há um comentário marcando o local) e no `robots.txt` (linha `Sitemap`). |
 | 9 | Criar uma imagem de pré-visualização para `og:image` (para a prévia ao compartilhar o link no WhatsApp/Instagram). |
 | 10 | Se houver domínio próprio, configurar na Vercel ou no GitHub Pages. |

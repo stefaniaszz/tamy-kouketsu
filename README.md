@@ -12,7 +12,8 @@ Site de uma página (landing page) em HTML, CSS e JavaScript puros. Sem framewor
 | WhatsApp, mensagem automática, Instagram, cidade, formas de pagamento | `js/config.js` |
 | Serviços, **preços**, descrições, duração, condições de agendamento | `js/dados-servicos.js` |
 | **Fotos** (topo, sobre, serviços, portfólio, vídeo) | `js/dados-imagens.js` + pasta `assets/` |
-| **Depoimentos** (prints de clientes) | `js/depoimentos.js` |
+| **Depoimentos** (7 prints de clientes, 4 por linha) | `js/depoimentos.js` + `assets/images/depoimentos/` |
+| **Favicon** ("TK", feito da logo) | `assets/favicon/` + `<head>` do `index.html` |
 | Cores e fontes | `css/variables.css` |
 | Textos fixos das seções | `index.html` |
 
@@ -28,15 +29,14 @@ Substitua o arquivo na pasta indicada mantendo o nome, ou ajuste o caminho em `j
 ## Antes de publicar
 1. Fazer um teste real de agendamento pelo WhatsApp.
 2. Autorização das clientes para prints e fotos: confirmada pela Tamy em 19/11.
-3. Confirmar autorização das clientes para uso das fotos.
-4. Informar a URL final em `index.html` (`canonical`, `og:url`, `og:image`) e em `robots.txt`.
-5. Publicar a pasta inteira em qualquer hospedagem estática (Netlify, GitHub Pages, Vercel, Hostinger etc.).
+3. Informar a URL final em `index.html` (`canonical`, `og:url`, `og:image`) e em `robots.txt`.
+4. Publicar a pasta inteira em qualquer hospedagem estática (Netlify, GitHub Pages, Vercel, Hostinger etc.).
 
 ## Estrutura
 ```
 index.html  robots.txt  README.md
 css/  variables base layout components sections animations
 js/   config dados-* imagens servicos gallery nav animations depoimentos whatsapp agendamento contato icones main
-assets/ logo/ images/ videos/
+assets/ logo/ favicon/ images/ videos/
 ```
 Ícones: Lucide (licença ISC), embutidos em `js/icones.js`.
