@@ -188,7 +188,6 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 | # | Tarefa |
 |---|---|
 | 7a | Rodar `git push origin main` no terminal do computador (o commit `c8c896d` já existe no clone) e conferir se o workflow do GitHub Pages terminou sem erro. |
-| 7b | Apagar os 6 arquivos antigos `assets/images/depoimentos/print-1.jpg` a `print-6.jpg` (não são mais usados e ficaram fora do commit). |
 | 8 | Colocar a URL final em `canonical`, `og:url` e `og:image` no `index.html` (há um comentário marcando o local) e no `robots.txt` (linha `Sitemap`). |
 | 9 | Criar uma imagem de pré-visualização para `og:image` (para a prévia ao compartilhar o link no WhatsApp/Instagram). |
 | 10 | Se houver domínio próprio, configurar na Vercel ou no GitHub Pages. |
