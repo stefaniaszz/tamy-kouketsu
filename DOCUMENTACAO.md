@@ -107,7 +107,7 @@ originais/            Arquivos originais (fora do GitHub)
 - `prefixoPreco`: texto antes do valor (hoje "a partir de").
 - Cada serviço tem id, nome, descrição, detalhes, preço e duração. Para mudar um valor, edite só o número do serviço.
 - Serviços atuais (valores do catálogo de 19/11): Maquiagem Social (R$ 200), Maquiagem Express (R$ 160), Brow Lamination (R$ 150), Design com Henna Premium (R$ 70), Design de Sobrancelhas + Tintura (R$ 95), Design Personalizado (R$ 40), Lash Lifting (R$ 150) e cílios Efeito Sirena, Foxy Eyes, Volume Brasileiro e Volume Egípcio (R$ 180 na primeira aplicação; manutenção a partir de R$ 90). Os preços aparecem com "a partir de". Remoção de cílios: R$ 20 (ver pendências).
-- `CONDICOES_AGENDAMENTO`: sinal de 30%, multa de 50%, reagendamento com 48h de antecedência, tolerância de 10 minutos.
+- `CONDICOES_AGENDAMENTO`: hoje só o sinal de 30% do valor do procedimento no ato do agendamento (multa, reagendamento e tolerância de atraso foram removidos em 24/11). Para incluir outra condição, acrescente uma linha em `itens` (a lista é centralizada em `css/components.css`).
 
 ### 5.3 `js/dados-imagens.js` e `assets/`
 - Troque o arquivo mantendo o nome, ou altere o caminho neste arquivo.
@@ -156,6 +156,8 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 **Atualização de 19/11 (tarde):** endereço e mapa removidos da página; prints de depoimentos reais no lugar dos fictícios; valores atualizados conforme o catálogo novo; Maquiagem Beauty ou Social substituída por Maquiagem Social (R$ 200) e Maquiagem Express (R$ 160); novo serviço Design de Sobrancelhas + Tintura (R$ 95), com 3 fotos.
 
 **Atualização de 19/11 (noite):** os 3 depoimentos de fundo vermelho (Instagram) foram removidos, restando 4 prints de conversa;  taxa de remoção de extensão confirmada em R$ 50; autorização das clientes (prints e fotos) confirmada pela Tamy; depoimentos trocados pelos prints novos (`depoimento-1..4.jpg`), exibidos 4 por linha no desktop, 2 no tablet e 1 no celular estreito (`css/sections.css`); favicon "TK" criado a partir da logo e ligado no `<head>`; commit `c8c896d` feito no clone local (o `git push` precisa ser rodado no terminal do computador).
+
+**Ajustes de 24/11:** (1) Condições de agendamento reduzidas ao sinal de 30%, com o bloco centralizado; (2) em Design de Sobrancelhas + Tintura, a primeira foto do carrossel passou a ser `design-sobrancelhas-tintura-3.jpg` (close com olhos fechados, que antes era a última), seguida de `design-sobrancelhas-tintura.jpg` e `-2.jpg` (ordem original das demais); (3) `maquiagem-beauty-social-2.jpg` (mulher deitada com colar de cruz) saiu do carrossel de Maquiagem Social. O arquivo da foto continua em `assets/images/servicos/` para uso futuro.
 
 **Pedidos extras atendidos:** valores com "a partir de"; fotos do catálogo no carrossel de cada serviço; vídeo sem som e com autoplay; mensagem automática com nome, telefone, procedimento e data; formulário em pop-up; foto do topo ("primeira foto") e da seção Sobre ("segunda foto"); depoimentos de teste (já substituídos pelos reais); "Ver mais" no portfólio do celular; logo maior no computador; alinhamento de Estúdio e Formas de pagamento no celular; originais organizados em `originais/`.
 

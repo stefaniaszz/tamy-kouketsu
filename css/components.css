@@ -93,7 +93,9 @@
 /* ---------- Condicoes de agendamento ---------- */
 .condicoes { margin-top:var(--espaco-lg); padding:2rem; border:1px solid var(--cor-dourado-30); border-radius:var(--raio); }
 .condicoes__titulo { font-size:1.7rem; text-align:center; color:var(--cor-dourado); margin-bottom:1.5rem; }
-.condicoes__lista { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem 2rem; font-size:.93rem; }
+/* flex centralizado: com 1 item (hoje so o sinal de 30%) o bloco fica equilibrado; com varios, quebra em linhas */
+.condicoes__lista { display:flex; flex-wrap:wrap; justify-content:center; gap:1.25rem 2rem; font-size:.93rem; }
+.condicoes__lista li { flex:0 1 420px; }
 .condicoes__lista li { display:flex; gap:.75rem; align-items:flex-start; }
 .condicoes__lista svg { flex:none; width:20px; height:20px; margin-top:.2rem; stroke-width:1.4; color:var(--cor-dourado); }
 

@@ -177,8 +177,5 @@ window.CONDICOES_AGENDAMENTO = {
   titulo: 'Condições de agendamento',
   itens: [
     { icone: 'wallet',        texto: 'Sinal de 30% do valor do procedimento no ato do agendamento.' },
-    { icone: 'calendar-x',    texto: 'Multa de 50% do valor do procedimento em caso de desmarque ou não comparecimento.' },
-    { icone: 'calendar-clock', texto: 'Reagendamentos devem ser feitos com no mínimo 48h de antecedência; caso contrário, há risco de perder o horário e de multa.' },
-    { icone: 'clock',         texto: 'Tolerância de atraso de 10 minutos e antecedência de 5 minutos.' },
   ],
 };
