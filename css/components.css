@@ -167,8 +167,8 @@
 
 /* Carrossel: o deslize lateral nas fotos nao arrasta a pagina junto */
 .carrossel__pista { overscroll-behavior-x: contain; }
-/* Maquiagem Social (loop): sem "elastico" ao puxar alem das pontas, que deixava a foto em branco no iPhone */
-.carrossel--circular .carrossel__pista { overscroll-behavior-x: none; }
+/* Maquiagem Social (sem loop): sem "elastico" ao puxar alem das pontas, que deixava a foto em branco no iPhone */
+.carrossel--protegido .carrossel__pista { overscroll-behavior-x: none; }
 /* Toque nos carrosseis: "manipulation" = rolagem (x e y) + zoom por pinca continuam, mas o duplo toque
    deixa de dar zoom, entao passar as fotos rapido nao amplia a tela. Nao desliga o zoom global (o viewport
    nao foi alterado). Precisa estar na pista (que rola), nos slides e nas fotos, porque o navegador so

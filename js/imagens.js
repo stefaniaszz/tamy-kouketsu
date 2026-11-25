@@ -30,11 +30,12 @@
   };
 
   // Carrossel de fotos (setas, bolinhas, arrastar no celular). Com 1 foto, sem controles.
-  // opcoes.circular = true: navegacao em loop (depois da ultima volta a 1a e vice-versa) com indice
-  // absoluto, em vez de rolagem relativa. Hoje so o carrossel de Maquiagem Social usa (js/servicos.js).
+  // opcoes.protegido = true: navegacao SEM loop (para na primeira e na ultima foto), por indice absoluto
+  // em vez de rolagem relativa, e recolocando a pista na foto mais proxima se o navegador a deixar entre
+  // duas fotos (evita o espaco em branco no iPhone). Hoje so Maquiagem Social usa (js/servicos.js).
   window.criarCarrossel = function (imagens, opcoes) {
-    const circular = !!(opcoes && opcoes.circular);
-    const raiz = el('div', 'carrossel' + (circular ? ' carrossel--circular' : ''));
+    const protegido = !!(opcoes && opcoes.protegido);
+    const raiz = el('div', 'carrossel' + (protegido ? ' carrossel--protegido' : ''));
     const pista = el('div', 'carrossel__pista');
     pista.setAttribute('role', 'group');
     pista.setAttribute('aria-label', 'Fotos do serviço');
@@ -52,14 +53,13 @@
     let destino = 0;          // indice para onde o carrossel esta indo (cliques rapidos encadeiam)
     let tocando = false;      // dedo na tela
     let timer = 0;
-    // Vai para a foto i (em loop). Saltos longos (ultima <-> primeira) sao instantaneos.
+    // Vai para a foto i, limitada entre a primeira e a ultima (nunca da a volta).
     const ir = (i) => {
-      destino = ((i % total) + total) % total;
-      const longe = Math.abs(destino - atual()) > 1;
-      pista.scrollTo({ left: destino * larg(), behavior: longe ? 'auto' : 'smooth' });
+      destino = Math.min(total - 1, Math.max(0, i));
+      pista.scrollTo({ left: destino * larg(), behavior: 'smooth' });
     };
-    const mover = circular ? (dir) => ir(destino + dir)
-                           : (dir) => pista.scrollBy({ left: dir * pista.clientWidth, behavior: 'smooth' });
+    const mover = protegido ? (dir) => ir(destino + dir)
+                            : (dir) => pista.scrollBy({ left: dir * pista.clientWidth, behavior: 'smooth' });
     const mkBtn = (cls, rotulo, icone, dir) => {
       const b = el('button', 'carrossel__seta ' + cls);
       b.type = 'button'; b.setAttribute('aria-label', rotulo);
@@ -74,7 +74,7 @@
     const bolinhas = imagens.map((_, i) => {
       const p = el('button', 'carrossel__ponto');
       p.type = 'button'; p.setAttribute('aria-label', `Ir para a foto ${i + 1}`);
-      p.addEventListener('click', () => (circular ? ir(i) : pista.scrollTo({ left: i * pista.clientWidth, behavior: 'smooth' })));
+      p.addEventListener('click', () => (protegido ? ir(i) : pista.scrollTo({ left: i * pista.clientWidth, behavior: 'smooth' })));
       pontos.appendChild(p); return p;
     });
     raiz.appendChild(pontos);
@@ -85,10 +85,10 @@
     pista.addEventListener('scroll', atualizar, { passive: true });
     atualizar();
 
-    if (circular) {
+    if (protegido) {
       // Quando a rolagem para (120 ms sem eventos): sincroniza o destino e, se o navegador deixou a pista
       // fora das posicoes das fotos (ex.: Safari do iPhone apos puxar alem da ultima foto -> espaco em
-      // branco), recoloca na foto mais proxima.
+      // branco), recoloca na foto mais proxima. Sem saltos entre as pontas.
       const assentar = () => {
         if (tocando) return;
         const i = atual();
@@ -96,23 +96,9 @@
         if (Math.abs(pista.scrollLeft - i * larg()) > 2) pista.scrollTo({ left: i * larg(), behavior: 'auto' });
       };
       pista.addEventListener('scroll', () => { clearTimeout(timer); timer = setTimeout(assentar, 120); }, { passive: true });
-      // Arrastar alem da ultima foto volta a primeira (e antes da primeira vai a ultima).
-      let x0 = 0, y0 = 0, i0 = 0;
-      pista.addEventListener('touchstart', (e) => {
-        tocando = true; x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; i0 = atual();
-      }, { passive: true });
-      const fim = (e) => {
-        tocando = false;
-        const t = e.changedTouches && e.changedTouches[0];
-        if (t) {
-          const dx = t.clientX - x0, dy = t.clientY - y0;
-          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-            if (i0 === total - 1 && dx < 0) { ir(0); return; }
-            if (i0 === 0 && dx > 0) { ir(total - 1); return; }
-          }
-        }
-        clearTimeout(timer); timer = setTimeout(assentar, 120);
-      };
+      // Dedo na tela: nao recolocar a pista enquanto o usuario arrasta; ao soltar, assenta.
+      pista.addEventListener('touchstart', () => { tocando = true; }, { passive: true });
+      const fim = () => { tocando = false; clearTimeout(timer); timer = setTimeout(assentar, 120); };
       pista.addEventListener('touchend', fim, { passive: true });
       pista.addEventListener('touchcancel', fim, { passive: true });
     }
