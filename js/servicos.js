@@ -19,7 +19,7 @@
     const midia = el('div', 'midia cartao-servico__foto');
     // Fotos do servico: js/dados-imagens.js (mais de 1 foto = carrossel automatico)
     const fotos = window.listaImagens((window.IMAGENS.servicos || {})[s.id], s.nome);
-    if (fotos.length) midia.appendChild(window.criarCarrossel(fotos));
+    if (fotos.length) midia.appendChild(window.criarCarrossel(fotos, { circular: s.id === 'maquiagem-social' }));
     else {
       const p = el('div', 'placeholder');
       p.innerHTML = '<i data-lucide="image"></i><span>Foto do serviço<br>conteúdo pendente</span>';

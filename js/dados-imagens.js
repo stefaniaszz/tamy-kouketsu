@@ -20,8 +20,8 @@ window.IMAGENS = {
   /* Foto de destaque (secao inicial) */
   hero: {
     src: 'assets/images/hero/hero.jpg',
-    alt: 'Retrato em preto e branco de Tamy Kouketsu',
-    posicao: '50% 18%',
+    alt: 'Retrato de Tamy Kouketsu, de blusa preta de gola alta, com as mãos apoiadas',
+    posicao: '50% 30%',
   },
 
   /* Foto da secao "Sobre".

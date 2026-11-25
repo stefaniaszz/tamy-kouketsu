@@ -31,15 +31,18 @@
 .hero__texto { margin-top: 1.75rem; max-width: 30rem; opacity: 0.85; }
 .hero__acoes { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem; }
 
-/* Foto de destaque: moldura em arco com borda dourada */
-.hero__foto { position: relative; justify-self: center; width: min(100%, 440px); }
+/* Foto de destaque: retangulo vertical (proporcao natural da foto, 2:3) com cantos arredondados nos 4 lados
+   e borda dourada. Troque a foto em js/dados-imagens.js; se a nova tiver outra proporcao, ajuste o aspect-ratio. */
+.hero__foto { --raio-hero: clamp(1.25rem, 3vw, 1.75rem); position: relative; justify-self: center; width: min(100%, 400px); }
 .hero__foto .midia {
-  aspect-ratio: 4 / 5; border-radius: 999px 999px var(--raio) var(--raio);
+  aspect-ratio: 2 / 3; border-radius: var(--raio-hero);
   border: 1px solid var(--cor-dourado);
 }
+/* Zoom leve na foto (o .midia corta o excesso). Ajuste --zoom-hero: 1 = sem zoom, 1.1 = 10%, 1.2 = 20%. */
+.hero__foto .midia img { transform: scale(var(--zoom-hero, 1.1)); transform-origin: 50% 40%; }
 .hero__foto::after {             /* segundo filete deslocado, detalhe dourado */
   content: ''; position: absolute; inset: 14px -14px -14px 14px; z-index: -1;
-  border: 1px solid var(--cor-dourado-30); border-radius: 999px 999px var(--raio) var(--raio);
+  border: 1px solid var(--cor-dourado-30); border-radius: var(--raio-hero);
 }
 .hero__rolar {
   position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
