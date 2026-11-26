@@ -87,7 +87,7 @@ originais/            Arquivos originais (fora do GitHub)
 3. **Serviços (`#servicos`)** — abas Maquiagem, Sobrancelhas e Cílios; cartões com carrossel de fotos, detalhes e preço "a partir de"; bloco de condições de agendamento.
 4. **Portfólio (`#portfolio`)** — galeria com filtros, lightbox e vídeo; botão "Ver no Instagram".
 5. **Diferenciais (`#diferenciais`)**.
-6. **Depoimentos (`#depoimentos`)** — 4 prints de conversas de clientes (4 por linha no desktop).
+6. **Depoimentos (`#depoimentos`)** — 4 prints de conversas de clientes (4 por linha no desktop; carrossel de um por vez no celular, até 480 px).
 7. **Localização (`#localizacao`)** — cidade, estúdio e aviso de que o endereço é enviado na confirmação do agendamento (sem endereço nem mapa na página).
 8. **Contato (`#contato`)** — formulário de agendamento, botão do Instagram, estúdio e formas de pagamento.
 9. **Rodapé** e **botão flutuante de WhatsApp**.
@@ -106,7 +106,7 @@ originais/            Arquivos originais (fora do GitHub)
 ### 5.2 `js/dados-servicos.js`
 - `prefixoPreco`: texto antes do valor (hoje "a partir de").
 - Cada serviço tem id, nome, descrição, detalhes, preço e duração. Para mudar um valor, edite só o número do serviço.
-- Serviços atuais (valores do catálogo de 19/11): Maquiagem Social (R$ 200), Maquiagem Express (R$ 160), Brow Lamination (R$ 150), Design com Henna Premium (R$ 70), Design de Sobrancelhas + Tintura (R$ 95), Design Personalizado (R$ 40), Lash Lifting (R$ 150) e cílios Efeito Sirena, Foxy Eyes, Volume Brasileiro e Volume Egípcio (R$ 180 na primeira aplicação; manutenção a partir de R$ 90). Os preços aparecem com "a partir de". Remoção de cílios: R$ 20 (ver pendências).
+- Serviços atuais (valores do catálogo de 19/11): Maquiagem Social (R$ 200), Maquiagem Express (R$ 160), Brow Lamination (R$ 150), Design com Henna Premium (R$ 70), Design de Sobrancelhas + Tintura (R$ 95), Design Personalizado (R$ 50), Lash Lifting (R$ 150) e cílios Efeito Sirena, Foxy Eyes, Volume Brasileiro e Volume Egípcio (R$ 180 na primeira aplicação; manutenção a partir de R$ 90). Os preços aparecem com "a partir de". Remoção de cílios: R$ 20 (ver pendências).
 - `CONDICOES_AGENDAMENTO`: hoje só o sinal de 30% do valor do procedimento no ato do agendamento (multa, reagendamento e tolerância de atraso foram removidos em 24/11). Para incluir outra condição, acrescente uma linha em `itens` (a lista é centralizada em `css/components.css`).
 
 ### 5.3 `js/dados-imagens.js` e `assets/`
@@ -116,7 +116,7 @@ originais/            Arquivos originais (fora do GitHub)
 - Cada pasta de `assets/images/` tem um `LEIA-ME.txt`.
 
 ### 5.4 `js/depoimentos.js`
-- Lista `DEPOIMENTOS`: hoje 4 prints (`assets/images/depoimentos/depoimento-1.jpg` a `depoimento-4.jpg`). Para adicionar outro, coloque a imagem na pasta e acrescente uma linha com `imagem` e `alt`.
+- Lista `DEPOIMENTOS`: hoje 4 prints (`assets/images/depoimentos/depoimento-1.jpg` a `depoimento-4.jpg`). Para adicionar outro, coloque a imagem na pasta e acrescente uma linha com `imagem` e `alt`. O mesmo arquivo cria o carrossel do celular (setas e bolinhas, só até 480 px).
 
 ### 5.5 `js/gallery.js`
 - `POR_VEZ_CELULAR` (hoje 6): quantas fotos aparecem por vez no celular antes do "Ver mais". No computador aparecem todas.
@@ -124,7 +124,7 @@ originais/            Arquivos originais (fora do GitHub)
 ### 5.6 CSS
 - Cores e fontes: `css/variables.css`.
 - Tamanho da logo: `css/layout.css` (52 px base, 44 px no celular, 68 px no computador).
-- Os links de CSS no `index.html` têm `?v=3`. Ao fazer alterações de estilo depois de publicar, aumente o número (`?v=4`…) para forçar a atualização no navegador das clientes.
+- Os links de CSS no `index.html` têm `?v=3` (`sections.css`, `dados-servicos.js` e `depoimentos.js` já estão em `?v=4`). Ao fazer alterações de estilo depois de publicar, aumente o número (`?v=4`…) para forçar a atualização no navegador das clientes.
 
 ---
 
@@ -162,6 +162,8 @@ Motivo do pop-up: a cliente não consegue apagar campos da mensagem, e a Tamy re
 **Correção de toque nos carrosséis (24/11):** passar as fotos rápido no celular podia ser lido como duplo toque e dar zoom na página. Foi aplicado `touch-action: manipulation` em `.carrossel` e nos seus elementos (`css/components.css`): o duplo toque deixa de dar zoom, mas rolagem, arraste e zoom por pinça continuam. O viewport não foi alterado (zoom global liberado) e o JS dos carrosséis não mudou.
 
 **Carrossel de Maquiagem Social sem loop, protegido contra foto em branco (25/11):** no iPhone, ao puxar além da última foto o espaço da foto ficava em branco. Foi testada uma versão circular (última ↔ primeira), mas ela foi **removida** a pedido: o carrossel volta a parar na primeira e na última foto, como os demais. A proteção continua, sem loop: em `js/servicos.js` a opção é `criarCarrossel(fotos, { protegido: true })` (só para esse serviço; lógica em `js/imagens.js`). Setas e bolinhas navegam por índice absoluto limitado entre a 1ª e a última foto (a seta para na ponta, sem saltos); o arraste é o nativo do navegador; sem "elástico" nas pontas (`overscroll-behavior-x: none` em `.carrossel--protegido`, `css/components.css`); e, quando a rolagem para, a pista é recolocada na foto mais próxima se o navegador a deixar entre duas fotos. Os demais carrosséis não mudaram; para estender a proteção a eles, troque a condição `s.id === 'maquiagem-social'` em `js/servicos.js`.
+
+**Preço do Design Personalizado e depoimentos em carrossel no celular (25/11):** (1) o preço de "Design Personalizado" (sobrancelhas) passou de R$ 40 para **R$ 50,00** em `js/dados-servicos.js`; o preço é lido só dali, então o card é o único lugar onde aparece (os demais serviços não mudaram). (2) Em telas de até 480 px os depoimentos viram um carrossel: um print por vez, com setas, bolinhas e arraste com o dedo (`js/depoimentos.js` cria os controles; estilos no fim do bloco de depoimentos em `css/sections.css`). Acima de 480 px a grade continua igual (os controles ficam escondidos). A navegação para na primeira e na última (sem loop), sem "elástico" nas pontas e com recolocação no print mais próximo se o navegador parar entre dois (mesma proteção do carrossel de Maquiagem Social); `touch-action: manipulation` evita o zoom por duplo toque. Nenhuma biblioteca nova; textos, imagens e ordem dos depoimentos não mudaram. Para o Safari do iPhone não usar arquivos antigos, `sections.css`, `dados-servicos.js` e `depoimentos.js` agora são chamados com `?v=4` no `index.html`.
 
 **Nova foto principal (24/11):** `assets/images/hero/hero.jpg` foi substituída pela fotografia enviada (1714×2576 px, retrato colorido, usada sem filtro nem retoque; os pixels são idênticos ao arquivo recebido). A foto anterior (preto e branco) continua no histórico do Git. Ajustes visuais em `css/sections.css`: a moldura em arco virou um retângulo vertical na proporção natural da foto (`aspect-ratio: 2 / 3`), com `border-radius` nos quatro cantos (`--raio-hero`, de 20 px no celular a 28 px no computador, aplicado também ao filete dourado de trás); largura máxima do computador de 440 para 400 px, para o retrato inteiro caber na primeira tela em 1366×768 (no celular continua `min(78%, 340px)`). Em `js/dados-imagens.js`: `object-position` `50% 30%` (a proporção da moldura é a da foto, então quase não há corte) e novo texto alternativo, já que o anterior descrevia um retrato em preto e branco. O `object-fit: cover` já era o padrão e foi mantido. Zoom leve de 10% na foto (`transform: scale(var(--zoom-hero, 1.1))`, centrado em 50% 40%, o `.midia` corta o excesso): para mudar, ajuste `--zoom-hero` em `css/sections.css` (1 = sem zoom). Títulos, textos, botões e cores não mudaram.
 

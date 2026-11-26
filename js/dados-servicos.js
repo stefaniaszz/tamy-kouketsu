@@ -94,7 +94,7 @@ window.SERVICOS = {
             { icone: 'clock', texto: 'Atendimento: 30 min a 1h' },
             { icone: 'check', texto: 'Incluso spa de sobrancelhas e crescimento dos pelos' },
           ],
-          preco: 40,
+          preco: 50,
           precoLegenda: '',
         },
       ],
